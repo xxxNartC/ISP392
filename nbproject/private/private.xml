@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/Controllers/homeControllers.java</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/Model/Account.java</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/login.jsp</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/Controllers/changePasswordControllers.java</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/DAL/DAO.java</file>
             <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/header.jsp</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/Menu.jsp</file>
             <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/changePassword.jsp</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/blog.html</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/DAL/DBConnect.java</file>
         </group>
     </open-files>
 </project-private>
