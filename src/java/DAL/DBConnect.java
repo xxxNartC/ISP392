@@ -24,7 +24,6 @@ public class DBConnect {
 
             // Kết nối tới MySQL
             cnn = DriverManager.getConnection(url, user, password);
-            System.out.println("success");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver not found: " + e.getMessage());
         } catch (SQLException e) {

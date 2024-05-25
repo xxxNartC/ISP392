@@ -47,6 +47,7 @@ public class DAO extends DBConnect {
                 String type = rs.getString(4);
                 String userInfoId = rs.getString(5);
                 a = new Account(ID, acc, pass, type, userInfoId);
+                System.out.println("success");
                 return a;
             }
         } catch (SQLException e) {
@@ -56,9 +57,35 @@ public class DAO extends DBConnect {
         return null;
     }
 
+    public boolean updateUser(Account user) {
+        String query = "UPDATE isp392_new.account SET Username = ?, Password = ?, AccountType = ?, UserInfoID = ? WHERE AccountID = ?";
+        try (Connection conn = this.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getAccountType());
+
+            // Assuming UserInfoID is an integer
+            ps.setInt(4, Integer.parseInt(user.getUserInfoId()));
+
+            ps.setString(5, user.getAccountID());
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        } catch (NumberFormatException ex) {
+            System.out.println("Invalid UserInfoID format: " + user.getUserInfoId());
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         DAO d = new DAO();
-        Account account = d.getAccountByUsername("manager", "123");
-        System.out.println(account != null ? account.getAccountID() : "Account not found");
+        Account account = d.getAccountByUsername("user0", "1234");
+        if (account != null) {
+            System.out.println(d.updateUser(account));
+        } else {
+            System.out.println("Account not found");
+        }
     }
 }
