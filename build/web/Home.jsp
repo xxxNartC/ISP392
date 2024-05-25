@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>EU Restaurant</title>
+        <title>Barenché Restaurant</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,7 +46,7 @@
                     <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 col-sm-12 text-center ftco-animate">
-                            <span class="subheading">Feliciano</span>
+                            <span class="subheading">Barenché</span>
                             <h1 class="mb-4">Best Restaurant</h1>
                         </div>
 
@@ -60,7 +60,7 @@
                     <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 col-sm-12 text-center ftco-animate">
-                            <span class="subheading">Feliciano</span>
+                            <span class="subheading">Barenché</span>
                             <h1 class="mb-4">Nutritious &amp; Tasty</h1>
                         </div>
 
@@ -74,7 +74,7 @@
                     <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 col-sm-12 text-center ftco-animate">
-                            <span class="subheading">Feliciano</span>
+                            <span class="subheading">Barenché</span>
                             <h1 class="mb-4">Delicious Specialties</h1>
                         </div>
 
@@ -91,38 +91,22 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="featured-menus ftco-animate">
-                                        <div class="menu-img img" style="background-image: url(images/breakfast-1.jpg);"></div>
-                                        <div class="text text-center">
-                                            <h3>Grilled Beef with potatoes</h3>
-                                            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="featured-menus ftco-animate">
-                                        <div class="menu-img img" style="background-image: url(images/breakfast-2.jpg);"></div>
-                                        <div class="text text-center">
-                                            <h3>Grilled Beef with potatoes</h3>
-                                            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="featured-menus ftco-animate">
-                                        <div class="menu-img img" style="background-image: url(images/breakfast-3.jpg);"></div>
-                                        <div class="text text-center">
-                                            <h3>Grilled Beef with potatoes</h3>
-                                            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="featured-menus ftco-animate">
-                                        <div class="menu-img img" style="background-image: url(images/breakfast-4.jpg);"></div>
-                                        <div class="text text-center">
-                                            <h3>Grilled Beef with potatoes</h3>
-                                            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +127,7 @@
                     <div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
                         <div class="heading-section mb-4 my-5 my-md-0">
                             <span class="subheading">About</span>
-                            <h2 class="mb-4">Feliciano Restaurant</h2>
+                            <h2 class="mb-4">Barenché Restaurant</h2>
                         </div>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                         <pc class="time">
@@ -466,7 +450,7 @@
                             <span class="subheading">Book a table</span>
                             <h2 class="mb-4">Make Reservation</h2>
                         </div>
-                        <form action="#" method="">
+                        <form action="#">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
