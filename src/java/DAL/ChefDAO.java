@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class ChefDAO extends DBConnect{ 
         public List<Chef> getAllChef() throws SQLException {
         List<Chef> chefs = new ArrayList<>();
-        String query = "SELECT Name, Role FROM isp392.chef;";
+        String query = "SELECT Name, Role, Image FROM isp392.chef;";
         
         try (PreparedStatement statement = cnn.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
@@ -29,7 +29,8 @@ public class ChefDAO extends DBConnect{
             while (resultSet.next()) {
                 chefs.add(new Chef(
                     resultSet.getString("Name"), // Ensure the column name is correct
-                    resultSet.getString("Role")  // Ensure the column name is correct
+                    resultSet.getString("Role"),  // Ensure the column name is correct
+                    resultSet.getString("Image")    
                 ));
             }
         } catch (SQLException e) {
@@ -51,5 +52,6 @@ public class ChefDAO extends DBConnect{
                 Logger.getLogger(ChefDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+
 }
 
