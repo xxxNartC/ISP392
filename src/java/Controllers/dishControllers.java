@@ -65,18 +65,44 @@ public class dishControllers extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DishDao dao = new DishDao();
-        List<dish> list = null;
+//        List<dish> list = null;
+//        
+//
+//        try {
+//            list = dao.getAllDishs();
+//            
+//            System.out.println(list.get(0));
+//            
+//        } catch (Exception e) {
+//            Logger.getLogger(dishControllers.class.getName()).log(Level.SEVERE, null, e);
+//        }
+//        request.setAttribute("list", list);
+//        
+//        //typedish=desserts
+//        request.getRequestDispatcher("Menu.jsp").forward(request, response);
+List<dish> plats = null;
+        List<dish> desserts = null;
+        List<dish> cocktails = null;
+        List<dish> wine = null;
+
         try {
-            list = dao.getAllDishs();
-            System.out.println(list.get(0));
-            
-        } catch (Exception e) {
+            // Lấy danh sách các món ăn có DishType là "Plats"
+            plats = dao.getDishesByType("Plats");
+            desserts = dao.getDishesByType("Desserts");
+            cocktails = dao.getDishesByType("Cocktails");
+            wine = dao.getDishesByType("Wine");
+        } catch (SQLException e) {
             Logger.getLogger(dishControllers.class.getName()).log(Level.SEVERE, null, e);
         }
-        request.setAttribute("list", list);
-        //typedish=desserts
+
+        // Đặt danh sách món ăn vào request
+        request.setAttribute("plats", plats);
+        request.setAttribute("desserts", desserts);
+        request.setAttribute("cocktails", cocktails);
+        request.setAttribute("wine", wine);
+
+        // Chuyển tiếp tới trang Menu.jsp
         request.getRequestDispatcher("Menu.jsp").forward(request, response);
-        
     }
 
     /**

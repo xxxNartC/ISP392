@@ -38,7 +38,30 @@ public class DishDao extends DBConnect {
     public static void main(String[] args) throws SQLException {
 
         DishDao dao = new DishDao();
-        List<dish> dishes = dao.getAllDishs();
+        String dishType = "Cocktails";
+        List<dish> dishes = dao.getDishesByType(dishType);
         System.out.println(dishes.get(0).getName());
+    }
+    public List<dish> getDishesByType(String dishType) throws SQLException {
+        List<dish> dishes = new ArrayList<>();
+        String sql = "SELECT * FROM dish WHERE DishType = ?";
+        PreparedStatement statement = cnn.prepareStatement(sql);
+        statement.setString(1, dishType);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            dish dish = new dish();
+            dish.setDishID(resultSet.getInt("DishID"));
+            dish.setName(resultSet.getString("Name"));
+            dish.setPrice(resultSet.getInt("Price"));
+            dish.setDescription(resultSet.getString("Description"));
+            dish.setImage(resultSet.getString("image"));
+            dish.setDishType(resultSet.getString("DishType"));
+            dishes.add(dish);
+        }
+
+        resultSet.close();
+        statement.close();
+        return dishes;
     }
 }
