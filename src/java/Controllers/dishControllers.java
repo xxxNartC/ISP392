@@ -80,7 +80,11 @@ public class dishControllers extends HttpServlet {
 //        
 //        //typedish=desserts
 //        request.getRequestDispatcher("Menu.jsp").forward(request, response);
+<<<<<<< HEAD
 List<dish> plats = null;
+=======
+        List<dish> plats = null;
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
         List<dish> desserts = null;
         List<dish> cocktails = null;
         List<dish> wine = null;

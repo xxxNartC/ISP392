@@ -58,7 +58,11 @@
                 <div class="ftco-search">
                     <div class="row">
                         <div class="col-md-12 nav-link-wrap">
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                             <div class="col-md-12 text-center heading-section ftco-animate">
                                 <span class="subheading">Plats</span>
 
@@ -110,7 +114,11 @@
                 <div class="ftco-search">
                     <div class="row">
                         <div class="col-md-12 nav-link-wrap">
+<<<<<<< HEAD
 
+=======
+                           
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                             <div class="col-md-12 text-center heading-section ftco-animate">
                                 <span class="subheading" style="margin-top: 200px">Desserts</span>
 
@@ -161,7 +169,11 @@
                 <div class="ftco-search">
                     <div class="row">
                         <div class="col-md-12 nav-link-wrap">
+<<<<<<< HEAD
 
+=======
+                           
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                             <div class="col-md-12 text-center heading-section ftco-animate">
                                 <span class="subheading" style="margin-top: 200px">Cocktails</span>
 
@@ -198,7 +210,16 @@
                                         </c:forEach>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                             </div>
+=======
+
+
+                            </div>
+
+
+
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                         </div>
                     </div>
                 </div>
@@ -207,7 +228,11 @@
                 <div class="ftco-search">
                     <div class="row">
                         <div class="col-md-12 nav-link-wrap">
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                             <div class="col-md-12 text-center heading-section ftco-animate">
                                 <span class="subheading" style="margin-top: 200px">Wine</span>
 
@@ -321,7 +346,11 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
 
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9
                     </div>
                 </div>
             </div>
