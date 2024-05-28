@@ -31,7 +31,7 @@ public class Chef {
 //        this.Description = Description;
         this.role = role;
         this.image = image;
-<<<<<<< HEAD
+
     }
 
     public String getImage() {
@@ -40,8 +40,7 @@ public class Chef {
 
     public void setImage(String image) {
         this.image = image;
-=======
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
+
     }
 
 //    public int getChefid() {
@@ -98,15 +97,5 @@ public class Chef {
         this.role = role;
     }
 
-<<<<<<< HEAD
-=======
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
     
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
 }
