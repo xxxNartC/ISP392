@@ -37,11 +37,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="Home.jsp" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="About.jsp" class="nav-link">About</a></li>
+                <li class="nav-item active"><a href="http://localhost:9999/ISP392-3/home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="http://localhost:9999/ISP392-3/about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="http://localhost:9999/ISP392-3/dishs" class="nav-link">Menu</a></li>
                 <li class="nav-item"><a href="Blog.jsp" class="nav-link">Stories</a></li>
-                <li class="nav-item"><a href="Contact.jsp" class="nav-link">Contact</a></li>
 
             </ul>
         </div>
@@ -71,7 +70,6 @@
             <c:if test="${sessionScope.account eq null}">
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/login" class="nav-link">Login</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="register" class="nav-link">Register</a></li>
                     </ul>

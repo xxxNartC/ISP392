@@ -18,7 +18,7 @@ public class DBConnect {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Thông tin kết nối MySQL
-            String url = "jdbc:mysql://localhost:3306/isp392_new";
+            String url = "jdbc:mysql://localhost:3306/isp392";
             String user = "root";
             String password = "123456";
 

@@ -4,6 +4,9 @@
  */
 package Controllers;
 
+import DAL.AccountDAO;
+import Model.Account;
+import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -69,11 +72,46 @@ public class registerControllers extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username").trim();
-        String password = request.getParameter("password").trim();
-        String email = request.getParameter("email").trim();
-        String question = request.getParameter("question");
-        String answer = request.getParameter("answer").trim();
+        String username = request.getParameter("username");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password");
+        String dob = request.getParameter("dob");
+        String address = request.getParameter("address");
+        //
+        AccountDAO d = new AccountDAO();
+        Account existingAccount = d.getAccountByUsername(username);
+        if (existingAccount != null) {
+            request.setAttribute("errorMessage", "Username already exists");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
+        if (username.isBlank() || password.isBlank() || email.isBlank()) {
+            request.setAttribute("errorMessage", "Cant be blank");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
+        Account newAcc = new Account();
+        Users newUsers = new Users();
+        newAcc.setUserName(username);
+        newAcc.setPassword(password);
+        newAcc.setAccountType("user");
+
+        newUsers.setName(name);
+        newUsers.setPhone(phone);
+        newUsers.setAddress(address);
+        newUsers.setEmail(email);
+        newUsers.setDob(dob);
+        boolean add = d.addUserAndAccount(newUsers, newAcc);
+        if (add) {
+            // Registration successful
+            response.sendRedirect("login");
+        } else {
+            // Registration failed
+            request.setAttribute("errorMessage", "Registration failed. Please try again later.");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+        }
     }
 
     /**

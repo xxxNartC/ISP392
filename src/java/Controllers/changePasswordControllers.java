@@ -4,7 +4,7 @@
  */
 package Controllers;
 
-import DAL.DAO;
+import DAL.AccountDAO;
 import Model.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -86,7 +86,7 @@ public class changePasswordControllers extends HttpServlet {
             return;
         }
 
-        DAO d = new DAO();
+        AccountDAO d = new AccountDAO();
         Account acc = d.getAccountByUsername(username, currentPassword);
 
         if (acc != null && acc.getPassword().equals(currentPassword)) {

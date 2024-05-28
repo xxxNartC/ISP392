@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-        <title>Bootstrap Sign up Form Horizontal</title>
+        <title>Branché Restaurant</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -136,7 +136,11 @@
 
         <div class="signup-form">
             <form action="register" method="post">
-
+                <c:if test="${not empty errorMessage}">
+                    <div class="alert alert-danger" role="alert">
+                        ${errorMessage}
+                    </div>
+                </c:if>
                 <div class="row">
                     <div class="col-8 offset-4">
                         <h2>Sign Up</h2>
@@ -144,11 +148,11 @@
                 </div>			
 
                 <div class="form-outline mb-4">
-                    <input type="text" name="firstName" id="form3Example1" class="form-control" />
+                    <input type="text" name="username" id="form3Example1" class="form-control" />
                     <label class="form-label" for="form3Example1">User Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="text" name="lastName"id="form3Example2" class="form-control" />
+                    <input type="text" name="name"id="form3Example2" class="form-control" />
                     <label class="form-label" for="form3Example2">Name</label>
                 </div>
                 <!-- Email input -->
@@ -180,11 +184,11 @@
                 <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
 
             </form>
-            <div class="text-center">Already have an account? <a href="login.jsp" style="color: #ba8b00">Login here</a></div>
+            <div class="text-center">Already have an account? <a href="http://localhost:9999/ISP392-3/login" style="color: #ba8b00">Login here</a></div>
         </div>
         <%@include file="close.jsp" %>
 
-        
+
     </body>
 </html>
 

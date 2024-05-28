@@ -10,17 +10,19 @@ package Model;
  */
 public class Chef {
 //    private int chefid;
+
     private String name;
 //    private int salary;
 //    private int phone;
 //    private String address;
 //    private String Description;
     private String role;
+    private String image;
 
     public Chef() {
     }
 
-    public Chef(String name, String role) {
+    public Chef(String name, String role, String image) {
 //        this.chefid = chefid;
         this.name = name;
 //        this.salary = salary;
@@ -28,6 +30,15 @@ public class Chef {
 //        this.address = address;
 //        this.Description = Description;
         this.role = role;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 //    public int getChefid() {
@@ -37,7 +48,6 @@ public class Chef {
 //    public void setChefid(int chefid) {
 //        this.chefid = chefid;
 //    }
-
     public String getName() {
         return name;
     }
@@ -77,7 +87,6 @@ public class Chef {
 //    public void setDescription(String Description) {
 //        this.Description = Description;
 //    }
-
     public String getRole() {
         return role;
     }
@@ -85,5 +94,5 @@ public class Chef {
     public void setRole(String role) {
         this.role = role;
     }
-    
+
 }

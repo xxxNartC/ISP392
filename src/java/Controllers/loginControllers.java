@@ -4,7 +4,7 @@
  */
 package Controllers;
 
-import DAL.DAO;
+import DAL.AccountDAO;
 import Model.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -74,7 +74,7 @@ public class loginControllers extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        DAO d = new DAO();
+        AccountDAO d = new AccountDAO();
         Account acc = d.getAccountByUsername(username, password);
 
         if (acc != null) {

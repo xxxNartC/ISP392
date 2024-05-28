@@ -64,8 +64,6 @@ public class DishDao extends DBConnect {
         statement.close();
         return dishes;
     }
-<<<<<<< HEAD:src/java/DAL/DishDao.java
 }
-=======
-}
->>>>>>> d6537f1ce5a6d39b10d80028a578a2ea52e706f9:src/java/Controllers/DishDao.java
+
+

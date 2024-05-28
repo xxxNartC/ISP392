@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Feliciano - Free Bootstrap 4 Template by Colorlib</title>
+        <title>FBranché Restaurant</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,9 +25,6 @@
         <link rel="stylesheet" href="css/aos.css">
 
         <link rel="stylesheet" href="css/ionicons.min.css">
-
-        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="css/jquery.timepicker.css">
 
 
         <link rel="stylesheet" href="css/flaticon.css">
@@ -53,59 +50,88 @@
         <section class="ftco-section ftco-no-pt ftco-no-pb">
             <div class="container-fluid px-0">
                 <div class="row d-flex no-gutters">
-                    <div class="col-md-6 order-md-last ftco-animate makereservation p-4 p-md-5 pt-5">
+                    <div class="col-md-12 ftco-animate makereservation p-4 p-md-5 pt-5">
                         <div class="py-md-5">
                             <div class="heading-section ftco-animate mb-5">
                                 <span class="subheading">Book a table</span>
-                                <h2 class="mb-4">Make Reservation</h2>
                             </div>
-                            <form action="#">
+                            <form action="ResControllers" method="POST">
                                 <div class="row">
+                                    <!-- Name Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Name</label>
-                                            <input type="text" class="form-control" placeholder="Your Name">
+                                            <label for="name">Name</label>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>">
                                         </div>
                                     </div>
+
+                                    <!-- Email Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Email</label>
-                                            <input type="text" class="form-control" placeholder="Your Email">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>">
                                         </div>
                                     </div>
+
+                                    <!-- Phone Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Phone</label>
-                                            <input type="text" class="form-control" placeholder="Phone">
+                                            <label for="phone">Phone</label>
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" value="<%= request.getParameter("phone") != null ? request.getParameter("phone") : "" %>">
                                         </div>
                                     </div>
+
+                                    <!-- Date Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Phone</label>
-                                            <input type="text" class="form-control" id="book_date" placeholder="Date">
+                                            <label for="book_date">Date</label>
+                                            <input type="date" id="book_date" name="book_date" class="form-control" placeholder="Date">
                                         </div>
                                     </div>
+
+
+
+
+
+                                    <!-- Trường chọn bàn -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Time</label>
-                                            <input type="text" class="form-control" id="book_time" placeholder="Time">
+                                            <label for="table_number">Table Number</label>
+                                            <select id="table_number" name="table_number" class="form-control">
+                                                <option value="">Select Table Number</option>
+                                                <option value="1">Table 1</option>
+                                                <option value="2">Table 2</option>
+                                                <option value="3">Table 3</option>
+                                                <option value="4">Table 4</option>
+                                                <option value="5">Table 5</option>
+                                                <option value="6">Table 6</option>
+                                                <option value="7">Table 7</option>
+                                                <option value="8">Table 8</option>
+                                                <option value="9">Table 9</option>
+                                                <option value="10">Table 10</option>
+                                            </select>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Person</label>
+                                            <label for="book_time">Time</label>
                                             <div class="select-wrap one-third">
                                                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">Person</option>
-                                                    <option value="">1</option>
-                                                    <option value="">2</option>
-                                                    <option value="">3</option>
-                                                    <option value="">4+</option>
+                                                <select id="book_time" name="book_time" class="form-control">
+                                                    <option value="">Select Time</option>
+                                                    <option value="12:00 PM">12:00 PM</option>
+                                                    <option value="12:30 PM">12:30 PM</option>
+                                                    <option value="1:00 PM">1:00 PM</option>
+                                                    <option value="6:00 PM">6:00 PM</option>
+                                                    <option value="6:30 PM">6:30 PM</option>
+                                                    <option value="7:00 PM">7:00 PM</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Submit Button -->
                                     <div class="col-md-12 mt-3">
                                         <div class="form-group">
                                             <input type="submit" value="Make a Reservation" class="btn btn-primary py-3 px-5">
@@ -122,101 +148,6 @@
             </div>
         </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Feliciano</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Open Hours</h2>
-                            <ul class="list-unstyled open-hours">
-                                <li class="d-flex"><span>Monday</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex"><span>Tuesday</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex"><span>Wednesday</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex"><span>Thursday</span><span>9:00 - 24:00</span></li>
-                                <li class="d-flex"><span>Friday</span><span>9:00 - 02:00</span></li>
-                                <li class="d-flex"><span>Saturday</span><span>9:00 - 02:00</span></li>
-                                <li class="d-flex"><span>Sunday</span><span> 9:00 - 02:00</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Instagram</h2>
-                            <div class="thumb d-sm-flex">
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-1.jpg);">
-                                </a>
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-2.jpg);">
-                                </a>
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-3.jpg);">
-                                </a>
-                            </div>
-                            <div class="thumb d-flex">
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-4.jpg);">
-                                </a>
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-5.jpg);">
-                                </a>
-                                <a href="#" class="thumb-menu img" style="background-image: url(images/insta-6.jpg);">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Newsletter</h2>
-                            <p>Far far away, behind the word mountains, far from the countries.</p>
-                            <form action="#" class="subscribe-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
-                                    <input type="submit" value="Subscribe" class="form-control submit px-3">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-        <!-- loader -->
-        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery.animateNumber.min.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jquery.timepicker.min.js"></script>
-        <script src="js/scrollax.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="js/google-map.js"></script>
-        <script src="js/main.js"></script>
-
+        <%@include file="close.jsp" %>
     </body>
-</html>
+</html> 
