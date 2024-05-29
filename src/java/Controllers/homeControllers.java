@@ -71,9 +71,9 @@ public class homeControllers extends HttpServlet {
             System.out.println(list.get(0));
 
         } catch (Exception e) {
-            Logger.getLogger(chefControllers.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(homeControllers.class.getName()).log(Level.SEVERE, null, e);
         }
-
+      
         request.setAttribute("list", list);
         request.getRequestDispatcher("Home.jsp").forward(request, response);
     }
