@@ -9,7 +9,10 @@ package Model;
  * @author ACER
  */
 public class Chef {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62a4921ff41280b27240cedbf441dd7233f17bb4
     private int chefid;
     private String name;
     private int salary;
@@ -22,7 +25,11 @@ public class Chef {
     public Chef() {
     }
 
+<<<<<<< HEAD
     public Chef(int chefid, String name, String role, String image) {
+=======
+    public Chef(int chefid ,String name, String role, String image) {
+>>>>>>> 62a4921ff41280b27240cedbf441dd7233f17bb4
         this.chefid = chefid;
         this.name = name;
         this.role = role;
@@ -40,6 +47,11 @@ public class Chef {
         this.image = image;
     }
 
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 62a4921ff41280b27240cedbf441dd7233f17bb4
     public int getChefid() {
         return chefid;
     }
@@ -108,5 +120,9 @@ public class Chef {
     public String toString() {
         return "Chef{" + "chefid=" + chefid + ", name=" + name + ", salary=" + salary + ", phone=" + phone + ", address=" + address + ", Description=" + Description + ", role=" + role + ", image=" + image + '}';
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 62a4921ff41280b27240cedbf441dd7233f17bb4
 }
