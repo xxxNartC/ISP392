@@ -79,6 +79,8 @@ public class registerControllers extends HttpServlet {
         String password = request.getParameter("password");
         String dob = request.getParameter("dob");
         String address = request.getParameter("address");
+        String answer = request.getParameter("answer");
+        String question = request.getParameter("question");
         //
         AccountDAO d = new AccountDAO();
         Account existingAccount = d.getAccountByUsername(username);
@@ -97,6 +99,7 @@ public class registerControllers extends HttpServlet {
         newAcc.setUserName(username);
         newAcc.setPassword(password);
         newAcc.setAccountType("user");
+        newAcc.setFotgotPassword(question+answer);
 
         newUsers.setName(name);
         newUsers.setPhone(phone);

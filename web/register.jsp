@@ -170,7 +170,15 @@
                     <input type="password" name="password" id="form3Example4" class="form-control" />
                     <label class="form-label" for="form3Example4">Password</label>
                 </div>
-
+                <div class="mb-3">
+                    <select name="question" class="form-select">
+                        <option value="Where are you from?">Where are you from?</option>
+                        <option value="What is your favorite song?">What is your favorite song?</option>
+                        <option value="Do you have dog?">Do you have dog?</option>
+                    </select>
+                    <input type="text" class="form-control mt-3" name="answer" required>
+                    <label for="question" class="form-label">Forgot password question</label>
+                </div>
 
                 <div class="form-outline mb-4">
                     <input type="date" name="dob"id="form3Example4" class="form-control" />

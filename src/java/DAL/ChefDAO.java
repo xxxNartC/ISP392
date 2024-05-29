@@ -21,27 +21,16 @@ public class ChefDAO extends DBConnect {
 
     public List<Chef> getAllChef() throws SQLException {
         List<Chef> chefs = new ArrayList<>();
-        String query = "SELECT Name, Role, Image FROM isp392.chef;";
-<<<<<<< HEAD
+        String query = "SELECT chefId, Name, Role, Image FROM isp392.chef;";
 
         try (PreparedStatement statement = cnn.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
                 chefs.add(new Chef(
-                        resultSet.getString("Name"), // Ensure the column name is correct
-                        resultSet.getString("Role"), // Ensure the column name is correct
+                        resultSet.getInt("chefId"),
+                        resultSet.getString("Name"),
+                        resultSet.getString("Role"),
                         resultSet.getString("Image")
-=======
-        
-        try (PreparedStatement statement = cnn.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()) {
-
-            while (resultSet.next()) {
-                chefs.add(new Chef(
-                    resultSet.getString("Name"), // Ensure the column name is correct
-                    resultSet.getString("Role"),  // Ensure the column name is correct
-                    resultSet.getString("Image")    
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
                 ));
             }
         } catch (SQLException e) {
@@ -52,20 +41,50 @@ public class ChefDAO extends DBConnect {
         return chefs;
     }
 
+    public Chef getAccountByUsername(int id) {
+        Chef c = null;
+        PreparedStatement stm = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            String strSql = "SELECT *  from chef where chefId = ? ";
+            stm = cnn.prepareStatement(strSql);
+            stm.setInt(1, id);
+
+            resultSet = stm.executeQuery();
+
+            if (resultSet.next()) {
+
+                c = new Chef(
+                        resultSet.getInt("chefId"),
+                        resultSet.getString("Name"),
+                        resultSet.getInt("salary"),
+                        resultSet.getInt("phone"),
+                        resultSet.getString("address"),
+                        resultSet.getString("Description"),
+                        resultSet.getString("role"),
+                        resultSet.getString("image")
+                );
+
+                return c;
+            }
+        } catch (SQLException e) {
+            System.out.println("getUsers: " + e.getMessage());
+        }
+
+        return null;
+    }
+
     public static void main(String[] args) {
 
         try {
             ChefDAO dao = new ChefDAO();
             List<Chef> chef = dao.getAllChef();
-            System.out.println(chef.size());
+             System.out.println(dao.getAccountByUsername(1));
         } catch (SQLException ex) {
             Logger.getLogger(ChefDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-<<<<<<< HEAD
-=======
-
-}
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
 
 }

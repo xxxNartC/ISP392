@@ -101,7 +101,7 @@
                 </div>        
             </form>
             ${errorMessage}
-            <p class="text-center"><a href="register.jsp">Register</a></p>
+            <p class="text-center"><a href="register">Register</a></p>
         </div>
 
 

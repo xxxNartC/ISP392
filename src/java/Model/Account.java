@@ -9,17 +9,27 @@ package Model;
  * @author DELL
  */
 public class Account {
-    String accountID,userName,password,accountType,userInfoId;
+
+    String accountID, userName, password, accountType, userInfoId, fotgotPassword;
 
     public Account() {
     }
 
-    public Account(String accountID, String userName, String password, String accountType, String userInfoId) {
+    public Account(String accountID, String userName, String password, String accountType, String userInfoId, String fotgotPassword) {
         this.accountID = accountID;
         this.userName = userName;
         this.password = password;
         this.accountType = accountType;
         this.userInfoId = userInfoId;
+        this.fotgotPassword = fotgotPassword;
+    }
+
+    public String getFotgotPassword() {
+        return fotgotPassword;
+    }
+
+    public void setFotgotPassword(String fotgotPassword) {
+        this.fotgotPassword = fotgotPassword;
     }
 
     public String getAccountID() {
@@ -61,5 +71,5 @@ public class Account {
     public void setUserInfoId(String userInfoId) {
         this.userInfoId = userInfoId;
     }
-    
+
 }

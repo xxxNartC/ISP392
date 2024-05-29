@@ -9,48 +9,45 @@ package Model;
  * @author ACER
  */
 public class Chef {
-//    private int chefid;
 
+    private int chefid;
     private String name;
-//    private int salary;
-//    private int phone;
-//    private String address;
-//    private String Description;
+    private int salary;
+    private int phone;
+    private String address;
+    private String Description;
     private String role;
     private String image;
 
     public Chef() {
     }
 
-    public Chef(String name, String role, String image) {
-//        this.chefid = chefid;
+    public Chef(int chefid, String name, String role, String image) {
+        this.chefid = chefid;
         this.name = name;
-//        this.salary = salary;
-//        this.phone = phone;
-//        this.address = address;
-//        this.Description = Description;
         this.role = role;
         this.image = image;
-<<<<<<< HEAD
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
+    public Chef(int chefid, String name, int salary, int phone, String address, String Description, String role, String image) {
+        this.chefid = chefid;
+        this.name = name;
+        this.salary = salary;
+        this.phone = phone;
+        this.address = address;
+        this.Description = Description;
+        this.role = role;
         this.image = image;
-=======
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
     }
 
-//    public int getChefid() {
-//        return chefid;
-//    }
-//
-//    public void setChefid(int chefid) {
-//        this.chefid = chefid;
-//    }
+    public int getChefid() {
+        return chefid;
+    }
+
+    public void setChefid(int chefid) {
+        this.chefid = chefid;
+    }
+
     public String getName() {
         return name;
     }
@@ -59,37 +56,38 @@ public class Chef {
         this.name = name;
     }
 
-//    public int getSalary() {
-//        return salary;
-//    }
-//
-//    public void setSalary(int salary) {
-//        this.salary = salary;
-//    }
-//
-//    public int getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(int phone) {
-//        this.phone = phone;
-//    }
-//
-//    public String getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
-//
-//    public String getDescription() {
-//        return Description;
-//    }
-//
-//    public void setDescription(String Description) {
-//        this.Description = Description;
-//    }
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
     public String getRole() {
         return role;
     }
@@ -98,8 +96,6 @@ public class Chef {
         this.role = role;
     }
 
-<<<<<<< HEAD
-=======
     public String getImage() {
         return image;
     }
@@ -107,6 +103,10 @@ public class Chef {
     public void setImage(String image) {
         this.image = image;
     }
-    
->>>>>>> 15176b3077173c1740d3b5675f98ddcebd917333
+
+    @Override
+    public String toString() {
+        return "Chef{" + "chefid=" + chefid + ", name=" + name + ", salary=" + salary + ", phone=" + phone + ", address=" + address + ", Description=" + Description + ", role=" + role + ", image=" + image + '}';
+    }
+
 }

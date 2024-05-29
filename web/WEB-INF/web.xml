@@ -4,7 +4,6 @@
         <servlet-name>loginControllers</servlet-name>
         <servlet-class>Controllers.loginControllers</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ResControllers</servlet-name>
         <servlet-class>Controllers.ResControllers</servlet-class>
@@ -20,6 +19,14 @@
     <servlet>
         <servlet-name>aboutControllers</servlet-name>
         <servlet-class>Controllers.aboutControllers</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>forgotPassControllers</servlet-name>
+        <servlet-class>Controllers.forgotPassControllers</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profileControllers</servlet-name>
+        <servlet-class>Controllers.profileControllers</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginControllers</servlet-name>
@@ -56,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>ResControllers</servlet-name>
         <url-pattern>/ResControllers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>forgotPassControllers</servlet-name>
+        <url-pattern>/forgotPass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profileControllers</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>

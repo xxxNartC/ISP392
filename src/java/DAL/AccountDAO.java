@@ -47,7 +47,8 @@ public class AccountDAO extends DBConnect {
                 String pass = rs.getString(3);
                 String type = rs.getString(4);
                 String userInfoId = rs.getString(5);
-                a = new Account(ID, acc, pass, type, userInfoId);
+                String forgot = rs.getString(6);
+                a = new Account(ID, acc, pass, type, userInfoId,forgot);
                 System.out.println("success");
                 return a;
             }
@@ -80,7 +81,8 @@ public class AccountDAO extends DBConnect {
                 String pass = rs.getString(3);
                 String type = rs.getString(4);
                 String userInfoId = rs.getString(5);
-                a = new Account(ID, acc, pass, type, userInfoId);
+                String forgot = rs.getString(6);
+                a = new Account(ID, acc, pass, type, userInfoId,forgot);
                 System.out.println("success");
                 return a;
             }
@@ -115,7 +117,7 @@ public class AccountDAO extends DBConnect {
 
     public boolean addUserAndAccount(Users user, Account account) {
         String queryUser = "INSERT INTO isp392.user(Name, Phone, Address, Email, Birthdate) VALUES (?, ?, ?, ?, ?)";
-        String queryAccount = "INSERT INTO isp392.account (Username, Password, AccountType, UserInfoID) VALUES (?, ?, ?, ?)";
+        String queryAccount = "INSERT INTO isp392.account (Username, Password, AccountType, UserInfoID,forgot) VALUES (?, ?, ?, ?,?)";
 
         Connection conn = null;
         PreparedStatement psUser = null;
@@ -151,6 +153,7 @@ public class AccountDAO extends DBConnect {
             psAccount.setString(2, account.getPassword());
             psAccount.setString(3, account.getAccountType());
             psAccount.setInt(4, userId);
+            psAccount.setString(5, account.getFotgotPassword());
             int rowsAffectedAccount = psAccount.executeUpdate();
 
             // Commit transaction
@@ -189,7 +192,7 @@ public class AccountDAO extends DBConnect {
     public static void main(String[] args) {
         // Create user and account objects
         Users user = new Users(14, "aaaa", "aa@g.com", "aaa", "12323", "2000-03-03");
-        Account account = new Account("13", "ádasd", "123123", "ádsd", "12");
+        Account account = new Account("13", "ádasd", "123123", "ádsd", "12","aaa");
 
         // Create instance of the class containing addUserAndAccount method
         AccountDAO dao = new AccountDAO();

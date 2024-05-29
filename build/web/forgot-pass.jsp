@@ -135,7 +135,7 @@
         </section>
 
         <div class="signup-form">
-            <form action="register" method="post">
+            <form action="forgotPass" method="post">
                 <c:if test="${not empty errorMessage}">
                     <div class="alert alert-danger" role="alert">
                         ${errorMessage}
