@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controllers;
+package ControllerDashbroad;
 
 import DAL.DishDao;
 import DAL.UserDao;
@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author maingocdat
  */
-public class UserControllers extends HttpServlet {
+public class UserController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,7 +70,7 @@ public class UserControllers extends HttpServlet {
         try {
             list = dao.getAllUsers();
         } catch (SQLException e) {
-            java.util.logging.Logger.getLogger(UserControllers.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
+            java.util.logging.Logger.getLogger(UserController.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
 
         // Đặt danh sách món ăn vào request
