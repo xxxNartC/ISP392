@@ -148,27 +148,32 @@
                 </div>			
 
                 <div class="form-outline mb-4">
-                    <input type="text" name="username" id="form3Example1" class="form-control" />
                     <label class="form-label" for="form3Example1">User Name</label>
+                    <input type="text" name="username" id="form3Example1" class="form-control" />
+                  
                 </div>
                 <div class="form-outline mb-4">
+                     <label class="form-label" for="form3Example2">Name</label>
                     <input type="text" name="name"id="form3Example2" class="form-control" />
-                    <label class="form-label" for="form3Example2">Name</label>
+                   
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" name="email" id="form3Example3" class="form-control" />
                     <label class="form-label" for="form3Example3">Email</label>
+                    <input type="email" name="email" id="form3Example3" class="form-control" />
+                   
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="text" name="phone" id="form3Example3" class="form-control" />
                     <label class="form-label" for="form3Example3">Phone number</label>
+                    <input type="text" name="phone" id="form3Example3" class="form-control" />
+                   
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" name="password" id="form3Example4" class="form-control" />
                     <label class="form-label" for="form3Example4">Password</label>
+                    <input type="password" name="password" id="form3Example4" class="form-control" />
+                    
                 </div>
                 <div class="mb-3">
                     <select name="question" class="form-select">
@@ -176,17 +181,21 @@
                         <option value="What is your favorite song?">What is your favorite song?</option>
                         <option value="Do you have dog?">Do you have dog?</option>
                     </select>
+                    
+                    <label for="question" class="form-label">Password question </label>
                     <input type="text" class="form-control mt-3" name="answer" required>
-                    <label for="question" class="form-label">Forgot password question</label>
+                  
                 </div>
 
                 <div class="form-outline mb-4">
-                    <input type="date" name="dob"id="form3Example4" class="form-control" />
                     <label class="form-label" for="form3Example4">Birth Date</label>
+                    <input type="date" name="dob"id="form3Example4" class="form-control" />
+                    
                 </div>
                 <div class="form-outline mb-4">
+                     <label class="form-label" for="form3Example4">Address</label>
                     <input type="text" name="address"id="form3Example4" class="form-control" />
-                    <label class="form-label" for="form3Example4">Address</label>
+                   
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
