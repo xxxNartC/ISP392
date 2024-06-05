@@ -72,6 +72,7 @@
             <c:if test="${sessionScope.account eq null}">
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/login" class="nav-link">Login</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="register" class="nav-link">Register</a></li>
                     </ul>

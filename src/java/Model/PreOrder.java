@@ -9,20 +9,24 @@ public class PreOrder {
     private String email;
     private String phone;
     private Date bookTime;
+    private int Adults;
+    private int Children;
+    
     
     // Constructors
     public PreOrder() {
     }
 
-    public PreOrder(int tableID, String name, String email, String phone, Date bookTime) {
-        this.tableID = tableID;
+    public PreOrder(int preOrderID, String name, String email, String phone, Date bookTime, int Adults, int Children) {
+        this.preOrderID = preOrderID;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.bookTime = bookTime;
+        this.Adults = Adults;
+        this.Children = Children;
     }
 
-    // Getters and Setters
     public int getPreOrderID() {
         return preOrderID;
     }
@@ -70,6 +74,25 @@ public class PreOrder {
     public void setBookTime(Date bookTime) {
         this.bookTime = bookTime;
     }
+
+    public int getAdults() {
+        return Adults;
+    }
+
+    public void setAdults(int Adults) {
+        this.Adults = Adults;
+    }
+
+    public int getChildren() {
+        return Children;
+    }
+
+    public void setChildren(int Children) {
+        this.Children = Children;
+    }
+
+    
+
 
     
 }

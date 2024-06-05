@@ -14,16 +14,16 @@ public class PreOrderDAO extends DBConnect {
         super();
     }
 
-    public void addPreOrder2(int tableID, String name, String email, String phone, Date bookTime) {
-        String query = "INSERT INTO `isp392`.`preordertable` (`TableID`, `Name`, `Email`, `Phone`, `Book_time`) VALUES (?,?,?,?,?);";
-        
+     public void addPreOrder2(String name, String email, String phone, Date bookTime, int numberOfAdults, int numberOfChildren) {
+        String query = "INSERT INTO `isp392`.`preordertable` (`Name`, `Email`, `Phone`, `Book_time`, `Adults`, `Children`) VALUES (?,?,?,?,?,?);";
 
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
-            preparedStatement.setInt(1, tableID);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, email);
-            preparedStatement.setString(4, phone);
-            preparedStatement.setDate(5, new java.sql.Date(bookTime.getTime()));
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            preparedStatement.setString(3, phone);
+            preparedStatement.setDate(4, new java.sql.Date(bookTime.getTime()));
+            preparedStatement.setInt(5, numberOfAdults);
+            preparedStatement.setInt(6, numberOfChildren);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

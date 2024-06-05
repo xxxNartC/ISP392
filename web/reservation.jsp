@@ -85,7 +85,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="book_date">Date</label>
-                                            <input type="date" id="book_date" name="book_date" class="form-control" placeholder="Date">
+                                            <input type="date" id="book_date" name="book_date" class="form-control" placeholder="Date"min="${currentDate}">
                                         </div>
                                     </div>
 
@@ -93,25 +93,40 @@
 
 
 
-                                    <!-- Trường chọn bàn -->
+                                    <!--                                     Trường chọn bàn 
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="table_number">Table Number</label>
+                                                                                <select id="table_number" name="table_number" class="form-control">
+                                                                                    <option value="">Select Table Number</option>
+                                                                                    <option value="1">Table 1</option>
+                                                                                    <option value="2">Table 2</option>
+                                                                                    <option value="3">Table 3</option>
+                                                                                    <option value="4">Table 4</option>
+                                                                                    <option value="5">Table 5</option>
+                                                                                    <option value="6">Table 6</option>
+                                                                                    <option value="7">Table 7</option>
+                                                                                    <option value="8">Table 8</option>
+                                                                                    <option value="9">Table 9</option>
+                                                                                    <option value="10">Table 10</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>-->
+
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="table_number">Table Number</label>
-                                            <select id="table_number" name="table_number" class="form-control">
-                                                <option value="">Select Table Number</option>
-                                                <option value="1">Table 1</option>
-                                                <option value="2">Table 2</option>
-                                                <option value="3">Table 3</option>
-                                                <option value="4">Table 4</option>
-                                                <option value="5">Table 5</option>
-                                                <option value="6">Table 6</option>
-                                                <option value="7">Table 7</option>
-                                                <option value="8">Table 8</option>
-                                                <option value="9">Table 9</option>
-                                                <option value="10">Table 10</option>
-                                            </select>
+                                            <label for="number_of_adults">Number of Adults</label>
+                                            <input type="number" id="number_of_adults" name="number_of_adults" class="form-control" value="0" min="0" max="10">
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="number_of_children">Number of Children</label>
+                                            <input type="number" id="number_of_children" name="number_of_children" class="form-control" value="0" min="0" max="10">
+                                        </div>
+                                    </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -120,12 +135,15 @@
                                                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                                 <select id="book_time" name="book_time" class="form-control">
                                                     <option value="">Select Time</option>
-                                                    <option value="12:00 PM">12:00 PM</option>
-                                                    <option value="12:30 PM">12:30 PM</option>
-                                                    <option value="1:00 PM">1:00 PM</option>
-                                                    <option value="6:00 PM">6:00 PM</option>
-                                                    <option value="6:30 PM">6:30 PM</option>
-                                                    <option value="7:00 PM">7:00 PM</option>
+                                                    <option value="6:00 PM">6:00 PM</option>                                                  
+                                                    <option value="6:00 PM">6:30 PM</option>
+                                                    <option value="6:00 PM">7:00 PM</option>
+                                                    <option value="6:00 PM">7:30 PM</option>
+                                                    <option value="6:00 PM">8:00 PM</option>
+                                                    <option value="6:00 PM">8:30 PM</option>
+                                                    <option value="7:00 PM">9:00 PM</option>
+                                                    <option value="7:00 PM">9:30 PM</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -149,5 +167,7 @@
         </section>
 
         <%@include file="close.jsp" %>
+
     </body>
 </html> 
+

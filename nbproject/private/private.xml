@@ -3,9 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/Home.jsp</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/Controllers/forgotPassControllers.java</file>
-            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/Model/Chef.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/DAL/DishDao.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/web/login.jsp</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/DAL/ChefDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/Controllers/ResControllers.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/DAL/AccountDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/web/viewRes.jsp</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/Controllers/dishControllers.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/Model/PreOrder.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/web/reservation.jsp</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/DAL/DBConnect.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/src/java/DAL/PreOrderDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Downloads/ISP392-master/ISP392-master/web/header.jsp</file>
         </group>
     </open-files>
 </project-private>

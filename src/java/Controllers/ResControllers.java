@@ -22,6 +22,7 @@ public class ResControllers extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("currentDate", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
         processRequest(request, response);
     }
 
@@ -33,8 +34,9 @@ public class ResControllers extends HttpServlet {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String bookDate = request.getParameter("book_date");
-        String tableNumber = request.getParameter("table_number");
         String bookTime = request.getParameter("book_time");
+        String numberOfAdultsStr = request.getParameter("number_of_adults");
+        String numberOfChildrenStr = request.getParameter("number_of_children");
 
         // Basic validation
         boolean isValid = true;
@@ -56,13 +58,27 @@ public class ResControllers extends HttpServlet {
             isValid = false;
             errorMessage.append("Booking date is required.\\n");
         }
-        if (tableNumber == null || tableNumber.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Table number is required.\\n");
-        }
         if (bookTime == null || bookTime.trim().isEmpty()) {
             isValid = false;
             errorMessage.append("Booking time is required.\\n");
+        }
+        if (numberOfAdultsStr == null || numberOfAdultsStr.trim().isEmpty()) {
+            isValid = false;
+            errorMessage.append("Number of adults is required.\\n");
+        }
+        if (numberOfChildrenStr == null || numberOfChildrenStr.trim().isEmpty()) {
+            isValid = false;
+            errorMessage.append("Number of children is required.\\n");
+        }
+
+        int numberOfAdults = 0;
+        int numberOfChildren = 0;
+        try {
+            numberOfAdults = Integer.parseInt(numberOfAdultsStr);
+            numberOfChildren = Integer.parseInt(numberOfChildrenStr);
+        } catch (NumberFormatException e) {
+            isValid = false;
+            errorMessage.append("Number of adults and children must be valid integers.\\n");
         }
 
         if (isValid) {
@@ -71,6 +87,14 @@ public class ResControllers extends HttpServlet {
             Date bookDateTime = null;
             try {
                 bookDateTime = dateTimeFormat.parse(bookDate + " " + bookTime);
+                Date currentDate = new Date();
+
+                // Check if the booking date is in the past
+                if (bookDateTime.before(currentDate)) {
+                    isValid = false;
+                    errorMessage.append("Booking date cannot be in the past.\\n");
+                }
+
             } catch (ParseException e) {
                 isValid = false;
                 errorMessage.append("Invalid date or time format.\\n");
@@ -82,12 +106,13 @@ public class ResControllers extends HttpServlet {
                 request.setAttribute("email", email);
                 request.setAttribute("phone", phone);
                 request.setAttribute("bookDate", bookDate);
-                request.setAttribute("tableNumber", tableNumber);
                 request.setAttribute("bookTime", bookDateTime);
+                request.setAttribute("numberOfAdults", numberOfAdults);
+                request.setAttribute("numberOfChildren", numberOfChildren);
 
                 PreOrderDAO pre = new PreOrderDAO();
                 try {
-                    pre.addPreOrder2(Integer.parseInt(tableNumber), name, email, phone, bookDateTime);
+                    pre.addPreOrder2(name, email, phone, bookDateTime, numberOfAdults, numberOfChildren);
                     // Forward to the review page
                     request.getRequestDispatcher("viewRes.jsp").forward(request, response);
                 } catch (Exception e) {

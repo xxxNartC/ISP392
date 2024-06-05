@@ -60,7 +60,7 @@
                     <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 col-sm-12 text-center ftco-animate">
-                            <span class="subheading">Branché</span>
+                            <span class="subheading">Feliciano</span>
                             <h1 class="mb-4">Nutritious &amp; Tasty</h1>
                         </div>
 
@@ -74,7 +74,7 @@
                     <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 col-sm-12 text-center ftco-animate">
-                            <span class="subheading">Branché</span>
+                            <span class="subheading">Feliciano</span>
                             <h1 class="mb-4">Delicious Specialties</h1>
                         </div>
 
@@ -93,7 +93,7 @@
                     <div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
                         <div class="heading-section mb-4 my-5 my-md-0">
                             <span class="subheading">About</span></br>
-                            <h2 class="mb-4">Branché Restaurant</h2>
+                            <h2 class="mb-4">Feliciano Restaurant</h2>
                         </div>
                         <p>Our restaurant offers a unique dining experience with delicious dishes and an elegant atmosphere.</p>
                         <pc class="time">
