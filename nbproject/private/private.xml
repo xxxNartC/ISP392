@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-
-        <group>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/Dashboard.jsp</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/UserController.java</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/Dishmanager.java</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/header.jsp</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/Dishmanager.jsp</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/manager.jsp</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/WEB-INF/web.xml</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/DAL/ChefDAO.java</file>
-            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/DAL/AccountDAO.java</file>
-        </group>
-
         <group/>
-
     </open-files>
 </project-private>
