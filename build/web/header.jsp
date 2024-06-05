@@ -62,7 +62,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="manager.jsp" class="nav-link">management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="Dashboard.jsp" class="nav-link">Management</a></li>
                         </ul>
                     </div>
                 </c:if>
