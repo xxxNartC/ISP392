@@ -57,12 +57,12 @@
                         </ul>
                     </div>
                 </c:if>
-                <c:if test="${sessionScope.account.accountType eq 'manager'}">
+                <c:if test="${sessionScope.account.accountType eq '1'}">
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="Dashboard.jsp" class="nav-link">Management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="DashBoard.jsp" class="nav-link">Management</a></li>
                         </ul>
                     </div>
                 </c:if>
