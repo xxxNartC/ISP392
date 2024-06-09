@@ -98,7 +98,7 @@ public class registerControllers extends HttpServlet {
         Users newUsers = new Users();
         newAcc.setUserName(username);
         newAcc.setPassword(password);
-        newAcc.setAccountType("user");
+        newAcc.setAccountType(2);
         newAcc.setFotgotPassword(question+answer);
 
         newUsers.setName(name);
