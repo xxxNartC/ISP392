@@ -63,7 +63,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="Dashboard.jsp" class="nav-link">Management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/dash" class="nav-link">Management</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
                         </ul>
                     </div>
