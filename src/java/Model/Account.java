@@ -10,12 +10,14 @@ package Model;
  */
 public class Account {
 
-    String accountID, userName, password, accountType, userInfoId, fotgotPassword;
+     private String accountID, userName, password;
+     private int accountType;
+     private String userInfoId, fotgotPassword;
 
     public Account() {
     }
 
-    public Account(String accountID, String userName, String password, String accountType, String userInfoId, String fotgotPassword) {
+    public Account(String accountID, String userName, String password, int accountType, String userInfoId, String fotgotPassword) {
         this.accountID = accountID;
         this.userName = userName;
         this.password = password;
@@ -56,11 +58,11 @@ public class Account {
         this.password = password;
     }
 
-    public String getAccountType() {
+    public int getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(String accountType) {
+    public void setAccountType(int accountType) {
         this.accountType = accountType;
     }
 

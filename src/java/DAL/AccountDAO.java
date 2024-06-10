@@ -45,7 +45,7 @@ public class AccountDAO extends DBConnect {
                 String ID = rs.getString(1);
                 String acc = rs.getString(2);
                 String pass = rs.getString(3);
-                String type = rs.getString(4);
+                int type = rs.getInt(4);
                 String userInfoId = rs.getString(5);
                 String forgot = rs.getString(6);
                 a = new Account(ID, acc, pass, type, userInfoId,forgot);
@@ -79,7 +79,7 @@ public class AccountDAO extends DBConnect {
                 String ID = rs.getString(1);
                 String acc = rs.getString(2);
                 String pass = rs.getString(3);
-                String type = rs.getString(4);
+                int type = rs.getInt(4);
                 String userInfoId = rs.getString(5);
                 String forgot = rs.getString(6);
                 a = new Account(ID, acc, pass, type, userInfoId,forgot);
@@ -98,7 +98,7 @@ public class AccountDAO extends DBConnect {
         try (Connection conn = this.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getAccountType());
+            ps.setInt(3, user.getAccountType());
 
             // Assuming UserInfoID is an integer
             ps.setInt(4, Integer.parseInt(user.getUserInfoId()));
@@ -151,7 +151,7 @@ public class AccountDAO extends DBConnect {
             psAccount = conn.prepareStatement(queryAccount);
             psAccount.setString(1, account.getUserName());
             psAccount.setString(2, account.getPassword());
-            psAccount.setString(3, account.getAccountType());
+            psAccount.setInt(3, account.getAccountType());
             psAccount.setInt(4, userId);
             psAccount.setString(5, account.getFotgotPassword());
             int rowsAffectedAccount = psAccount.executeUpdate();
@@ -189,20 +189,20 @@ public class AccountDAO extends DBConnect {
         }
     }
 
-    public static void main(String[] args) {
-        // Create user and account objects
-        Users user = new Users(14, "aaaa", "aa@g.com", "aaa", "12323", "2000-03-03");
-        Account account = new Account("13", "ádasd", "123123", "ádsd", "12","aaa");
-
-        // Create instance of the class containing addUserAndAccount method
-        AccountDAO dao = new AccountDAO();
-
-        // Test addUserAndAccount method
-        boolean result = dao.addUserAndAccount(user, account);
-        if (result) {
-            System.out.println("User and account added successfully!");
-        } else {
-            System.out.println("Failed to add user and account.");
-        }
-    }
+//    public static void main(String[] args) {
+//        // Create user and account objects
+//        Users user = new Users(14, "aaaa", "aa@g.com", "aaa", "12323", "2000-03-03");
+//        Account account = new Account("13", "ádasd", "123123", "1", "12","aaa");
+//
+//        // Create instance of the class containing addUserAndAccount method
+//        AccountDAO dao = new AccountDAO();
+//
+//        // Test addUserAndAccount method
+//        boolean result = dao.addUserAndAccount(user, account);
+//        if (result) {
+//            System.out.println("User and account added successfully!");
+//        } else {
+//            System.out.println("Failed to add user and account.");
+//        }
+//    }
 }
