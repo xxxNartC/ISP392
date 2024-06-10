@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/AddDish.jsp</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/WEB-INF/web.xml</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/DashBoard.jsp</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/Dishmanager.jsp</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/header.jsp</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/web/SideBarAdmin.jsp</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/DAL/DishDao.java</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/Dishmanager.java</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/AddDishController.java</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/Model/dish.java</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/DashBoard.java</file>
+            <file>file:/Users/maingocdat/Desktop/NewProjectISP392/src/java/ControllerDashbroad/UserController.java</file>
+        </group>
     </open-files>
 </project-private>

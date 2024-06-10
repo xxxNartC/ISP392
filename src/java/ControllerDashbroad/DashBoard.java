@@ -58,21 +58,21 @@ public class DashBoard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        Account user = (Account) session.getAttribute("user");
-        if(user == null){
-            response.sendRedirect("login");
-        }
-        else{
-             if(user.getAccountType()== "1"){
-            PrintWriter out = response.getWriter();
-            out.print("Access Denied");
-        }
-             else{
+//         HttpSession session = request.getSession();
+//        Account user = (Account) session.getAttribute("user");
+//        if(user == null){
+//            response.sendRedirect("login");
+//        }
+//        else{
+//             if(user.getAccountType()== "1"){
+//            PrintWriter out = response.getWriter();
+//            out.print("Access Denied");
+//        }
+//             else{
                    request.getRequestDispatcher("DashBoard.jsp").forward(request, response);
-             }
-     
-        }
+//             }
+//     
+//        }
       
     } 
 

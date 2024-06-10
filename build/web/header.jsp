@@ -46,7 +46,7 @@
         </div>
         <ul class="navbar-nav ml-auto">
             <c:if test="${sessionScope.account ne null}">
-                <c:if test="${sessionScope.account.accountType eq 'user'}">
+                <c:if test="${sessionScope.account.accountType eq '2'}">
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
@@ -62,7 +62,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="DashBoard.jsp" class="nav-link">Management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/DashBoard" class="nav-link">Management</a></li>
                         </ul>
                     </div>
                 </c:if>

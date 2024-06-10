@@ -38,13 +38,13 @@
             <div class="container" style="margin-top: -20px">
                 <div>
                     <div class="container">
-                        <a href="AddMovie" class="btn  p-2" style="background: #58abff; color: white; margin-bottom: 45px;margin-top: 30px "  >Add New Moive</a>
+                        <a href="AddDish" class="btn  p-2" style="background: #58abff; color: white; margin-bottom: 45px;margin-top: 30px "  >Add New Dish</a>
                     </div>
                     
                     
                 </div>
                 <div class="container" style="margin-top: -30px">
-                    <a href="list-user" style="text-decoration: none; color: #58abff"><h2 style="color: white">List Moive</h2></a>
+                    <a href="" style="text-decoration: none; color: #58abff"><h2 style="color: white">List Dish</h2></a>
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
