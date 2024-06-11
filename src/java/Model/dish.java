@@ -19,6 +19,14 @@ public class dish {
     public dish() {
     }
 
+    public dish(String Name, int Price, String Description, String DishType, String image) {
+        this.Name = Name;
+        this.Price = Price;
+        this.Description = Description;
+        this.DishType = DishType;
+        this.image = image;
+    }
+
     public dish(int DishID, String Name, int Price, String Description, String DishType, String image) {
         this.DishID = DishID;
         this.Name = Name;
