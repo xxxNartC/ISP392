@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ACER
+ * @author lozmethangthanhngu
  */
 @WebServlet(name = "ChefDetailController", urlPatterns = {"/chef-detail"})
 public class ChefDetailController extends HttpServlet {
