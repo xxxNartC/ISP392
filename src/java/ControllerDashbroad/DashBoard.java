@@ -13,17 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author DELL
+ * @author maingocdat
  */
-    @WebServlet(name = "DashBoard", urlPatterns = {"/dash"})
+@WebServlet(name = "DashBoard", urlPatterns = {"/DashBoard"})
 public class DashBoard extends HttpServlet {
 
     /**
@@ -64,7 +59,7 @@ public class DashBoard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("account");
 
         if (user == null) {
@@ -74,10 +69,11 @@ public class DashBoard extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.print("Access Denied");
             } else {
-                request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
+                request.getRequestDispatcher("DashBoard.jsp").forward(request, response);
             }
 
         }
+
     }
 
     /**

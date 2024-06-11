@@ -62,11 +62,9 @@ public class Dishmanager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        DishDao dao = new DishDao();
-        List<dish> list = null;
         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("account");
+
         if (user == null) {
             response.sendRedirect("login");
         } else {
@@ -74,16 +72,23 @@ public class Dishmanager extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.print("Access Denied");
             } else {
+                DishDao dao = new DishDao();
+                List<dish> list = null;
+
                 try {
                     list = dao.getAllDishs();
+
                     System.out.println(list.get(0));
+
                 } catch (Exception e) {
                     Logger.getLogger(Dishmanager.class.getName()).log(Level.SEVERE, null, e);
                 }
                 request.setAttribute("list", list);
                 System.out.println(list.get(0));
+
                 request.getRequestDispatcher("Dishmanager.jsp").forward(request, response);
             }
+
         }
 
     }

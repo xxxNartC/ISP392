@@ -35,4 +35,11 @@ public class UserDao extends DBConnect {
         }
         return users;
     }
+
+    public static void main(String[] args) throws SQLException {
+        UserDao d = new UserDao();
+        List<Users> list = new ArrayList<>();
+        list = d.getAllUsers();
+        System.out.println(list);
+    }
 }
