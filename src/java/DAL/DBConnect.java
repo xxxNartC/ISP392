@@ -20,7 +20,7 @@ public class DBConnect {
             // Thông tin kết nối MySQL
             String url = "jdbc:mysql://localhost:3306/isp392";
             String user = "root";
-            String password = "my-secret-pw";
+            String password = "123456";
 
             // Kết nối tới MySQL
             cnn = DriverManager.getConnection(url, user, password);

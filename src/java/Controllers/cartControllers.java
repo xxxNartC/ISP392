@@ -2,27 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package ControllerDashbroad;
+package Controllers;
 
-import DAL.DishDao;
-import Model.Account;
-import Model.dish;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author maingocdat
+ * @author DELL
  */
-public class Dishmanager extends HttpServlet {
+@WebServlet(name = "cartControllers", urlPatterns = {"/cart"})
+public class cartControllers extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +36,10 @@ public class Dishmanager extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Dishmanager</title>");
+            out.println("<title>Servlet cartControllers</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Dishmanager at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet cartControllers at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,30 +57,7 @@ public class Dishmanager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        DishDao dao = new DishDao();
-        List<dish> list = null;
-        HttpSession session = request.getSession();
-        Account user = (Account) session.getAttribute("account");
-        if (user == null) {
-            response.sendRedirect("login");
-        } else {
-            if (user.getAccountType().matches("user")) {
-                PrintWriter out = response.getWriter();
-                out.print("Access Denied");
-            } else {
-                try {
-                    list = dao.getAllDishs();
-                    System.out.println(list.get(0));
-                } catch (Exception e) {
-                    Logger.getLogger(Dishmanager.class.getName()).log(Level.SEVERE, null, e);
-                }
-                request.setAttribute("list", list);
-                System.out.println(list.get(0));
-                request.getRequestDispatcher("Dishmanager.jsp").forward(request, response);
-            }
-        }
-
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     /**
