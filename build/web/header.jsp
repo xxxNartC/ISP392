@@ -54,7 +54,7 @@
                             <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/changePasswordControllers" class="nav-link">Change Password</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/profile" class="nav-link">Profile</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
-                            
+
                         </ul>
                     </div>
                 </c:if>
@@ -63,7 +63,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/dash" class="nav-link">Management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/DashBoard" class="nav-link">Management</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/login" class="nav-link">Login</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="register" class="nav-link">Register</a></li>
-                         <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
+                        <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
                     </ul>
                 </div>
             </c:if>
