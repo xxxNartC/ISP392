@@ -1,30 +1,29 @@
 package Model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class PreOrder {
-    private int preOrderID; // Trường này sẽ tự động tăng
+    private int preOrderID; // This field will auto-increment
     private int tableID;
     private String name;
-    private String email;
     private String phone;
-    private Date bookTime;
-    private int Adults;
-    private int Children;
-    
+    private Date bookDate;
+    private int numberOfPeople;
+    private Date time;
     
     // Constructors
     public PreOrder() {
     }
 
-    public PreOrder(int preOrderID, String name, String email, String phone, Date bookTime, int Adults, int Children) {
+    public PreOrder(int preOrderID, int tableID, String name, String phone, Date bookDate, int numberOfPeople, Date time) {
         this.preOrderID = preOrderID;
+        this.tableID = tableID;
         this.name = name;
-        this.email = email;
         this.phone = phone;
-        this.bookTime = bookTime;
-        this.Adults = Adults;
-        this.Children = Children;
+        this.bookDate = bookDate;
+        this.numberOfPeople = numberOfPeople;
+        this.time = time;
     }
 
     public int getPreOrderID() {
@@ -51,14 +50,6 @@ public class PreOrder {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -67,32 +58,32 @@ public class PreOrder {
         this.phone = phone;
     }
 
-    public Date getBookTime() {
-        return bookTime;
+    public Date getBookDate() {
+        return bookDate;
     }
 
-    public void setBookTime(Date bookTime) {
-        this.bookTime = bookTime;
+    public void setBookDate(Date bookDate) {
+        this.bookDate = bookDate;
     }
 
-    public int getAdults() {
-        return Adults;
+    public int getNumberOfPeople() {
+        return numberOfPeople;
     }
 
-    public void setAdults(int Adults) {
-        this.Adults = Adults;
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
-    public int getChildren() {
-        return Children;
+    public Date getTime() {
+        return time;
     }
 
-    public void setChildren(int Children) {
-        this.Children = Children;
+    public void setTime(Date time) {
+        this.time = time;
     }
 
-    
+    public void setBookTime(Time time) {
+    this.time = new Date(time.getTime());
+}
 
-
-    
 }

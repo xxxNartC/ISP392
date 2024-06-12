@@ -2,7 +2,6 @@ package Controllers;
 
 import DAL.PreOrderDAO;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,96 +30,68 @@ public class ResControllers extends HttpServlet {
             throws ServletException, IOException {
         // Retrieve form parameters
         String name = request.getParameter("name");
-        String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String bookDate = request.getParameter("book_date");
         String bookTime = request.getParameter("book_time");
-        String numberOfAdultsStr = request.getParameter("number_of_adults");
-        String numberOfChildrenStr = request.getParameter("number_of_children");
+        String numberOfPeopleStr = request.getParameter("number_of_people");
 
         // Basic validation
         boolean isValid = true;
         StringBuilder errorMessage = new StringBuilder();
+        int numberOfPeople = 0;
 
-        if (name == null || name.trim().isEmpty()) {
+        if (name == null || name.trim().isEmpty() ||
+            phone == null || phone.trim().isEmpty() || 
+            bookDate == null || bookDate.trim().isEmpty() ||
+            bookTime == null || bookTime.trim().isEmpty() || 
+            numberOfPeopleStr == null || numberOfPeopleStr.trim().isEmpty()) {
             isValid = false;
-            errorMessage.append("Name is required.\\n");
-        }
-        if (email == null || email.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Email is required.\\n");
-        }
-        if (phone == null || phone.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Phone is required.\\n");
-        }
-        if (bookDate == null || bookDate.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Booking date is required.\\n");
-        }
-        if (bookTime == null || bookTime.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Booking time is required.\\n");
-        }
-        if (numberOfAdultsStr == null || numberOfAdultsStr.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Number of adults is required.\\n");
-        }
-        if (numberOfChildrenStr == null || numberOfChildrenStr.trim().isEmpty()) {
-            isValid = false;
-            errorMessage.append("Number of children is required.\\n");
-        }
-
-        int numberOfAdults = 0;
-        int numberOfChildren = 0;
-        try {
-            numberOfAdults = Integer.parseInt(numberOfAdultsStr);
-            numberOfChildren = Integer.parseInt(numberOfChildrenStr);
-        } catch (NumberFormatException e) {
-            isValid = false;
-            errorMessage.append("Number of adults and children must be valid integers.\\n");
+            errorMessage.append("All fields are required.\\n");
+        } else {
+            try {
+                numberOfPeople = Integer.parseInt(numberOfPeopleStr);
+                if (numberOfPeople <= 0) {
+                    isValid = false;
+                    errorMessage.append("Number of people must be greater than zero.\\n");
+                }
+            } catch (NumberFormatException e) {
+                isValid = false;
+                errorMessage.append("Number of people must be a valid integer.\\n");
+            }
         }
 
         if (isValid) {
             // Convert bookDate and bookTime to Date object
-            SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date bookDateTime = null;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            Date bookDateOnly;
+            Date bookTimeOnly;
             try {
-                bookDateTime = dateTimeFormat.parse(bookDate + " " + bookTime);
-                Date currentDate = new Date();
-
-                // Check if the booking date is in the past
-                if (bookDateTime.before(currentDate)) {
-                    isValid = false;
-                    errorMessage.append("Booking date cannot be in the past.\\n");
-                }
-
+                bookDateOnly = dateFormat.parse(bookDate);
+                bookTimeOnly = timeFormat.parse(bookTime);
             } catch (ParseException e) {
                 isValid = false;
                 errorMessage.append("Invalid date or time format.\\n");
+                generateErrorPopup(response, errorMessage.toString());
+                return;
             }
 
-            if (isValid) {
-                // Set request attributes to forward to review page
+            // Perform the reservation
+            PreOrderDAO preOrderDAO = new PreOrderDAO();
+            try {
+                preOrderDAO.addPreOrder(name, phone, bookDateOnly, bookTimeOnly, numberOfPeople);
+                // Set attributes in request
                 request.setAttribute("name", name);
-                request.setAttribute("email", email);
                 request.setAttribute("phone", phone);
                 request.setAttribute("bookDate", bookDate);
-                request.setAttribute("bookTime", bookDateTime);
-                request.setAttribute("numberOfAdults", numberOfAdults);
-                request.setAttribute("numberOfChildren", numberOfChildren);
-
-                PreOrderDAO pre = new PreOrderDAO();
-                try {
-                    pre.addPreOrder2(name, email, phone, bookDateTime, numberOfAdults, numberOfChildren);
-                    // Forward to the review page
-                    request.getRequestDispatcher("viewRes.jsp").forward(request, response);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    errorMessage.append("Database error: " + e.getMessage() + "\\n");
-                    generateErrorPopup(response, errorMessage.toString());
-                }
-            } else {
+                request.setAttribute("bookTime", bookTime);
+                request.setAttribute("numberOfPeople", numberOfPeople);
+                
+                // Forward to the review page
+                request.getRequestDispatcher("viewRes.jsp").forward(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+                errorMessage.append("Failed to process reservation.\\n");
                 generateErrorPopup(response, errorMessage.toString());
             }
         } else {

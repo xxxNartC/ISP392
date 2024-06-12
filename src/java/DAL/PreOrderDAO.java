@@ -4,6 +4,8 @@ import Model.PreOrder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,53 +16,54 @@ public class PreOrderDAO extends DBConnect {
         super();
     }
 
-     public void addPreOrder2(String name, String email, String phone, Date bookTime, int numberOfAdults, int numberOfChildren) {
-        String query = "INSERT INTO `isp392`.`preordertable` (`Name`, `Email`, `Phone`, `Book_time`, `Adults`, `Children`) VALUES (?,?,?,?,?,?);";
+    public void addPreOrder(String name, String phone, Date bookDate, Date time, int numberOfPeople) {
+        String query = "INSERT INTO `isp392`.`preordertable` (`Name`, `Phone`, `Book_date`, `Time`, `NumberOfPeople`) VALUES (?,?,?,?,?);";
 
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, phone);
-            preparedStatement.setDate(4, new java.sql.Date(bookTime.getTime()));
-            preparedStatement.setInt(5, numberOfAdults);
-            preparedStatement.setInt(6, numberOfChildren);
+            preparedStatement.setString(2, phone);
+            preparedStatement.setDate(3, new java.sql.Date(bookDate.getTime()));
+
+            // Convert java.util.Date to java.sql.Time
+            long timeInMillis = time.getTime();
+            java.sql.Time sqlTime = new java.sql.Time(timeInMillis);
+            preparedStatement.setTime(4, sqlTime);
+
+            preparedStatement.setInt(5, numberOfPeople);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-//    public void addPreOrder(int tableID, String name, String email, String phone, Date bookTime) throws SQLException {
-//        String query = "INSERT INTO preorders (table_id, name, email, phone, book_time) VALUES (?, ?, ?, ?, ?)";
-//
-//        try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
-//            preparedStatement.setInt(1, tableID);
-//            preparedStatement.setString(2, name);
-//            preparedStatement.setString(3, email);
-//            preparedStatement.setString(4, phone);
-//            preparedStatement.setDate(5, new java.sql.Date(bookTime.getTime()));
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            throw e;
-//        }
-//    }
-//
-//    public List<PreOrder> getAllPreOrders() throws SQLException {
-//        List<PreOrder> preOrders = new ArrayList<>();
-//        String query = "SELECT * FROM preorders";
-//        try (PreparedStatement preparedStatement = connection.prepareStatement(query); ResultSet resultSet = preparedStatement.executeQuery()) {
-//            while (resultSet.next()) {
-//                PreOrder preOrder = new PreOrder();
-//                preOrder.setPreOrderID(resultSet.getInt("pre_order_id"));
-//                preOrder.setTableID(resultSet.getInt("table_id"));
-//                preOrder.setName(resultSet.getString("name"));
-//                preOrder.setEmail(resultSet.getString("email"));
-//                preOrder.setPhone(resultSet.getString("phone"));
-//                preOrder.setBookTime(resultSet.getDate("book_time"));
-//                preOrders.add(preOrder);
-//            }
-//        }
-//        return preOrders;
-//    }
+  public List<PreOrder> getPreOrdersByPhone(String phone) throws SQLException {
+    List<PreOrder> preOrders = new ArrayList<>();
+    String query = "SELECT * FROM isp392.preordertable WHERE Phone = ?";
+    try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
+        preparedStatement.setString(1, phone);
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                PreOrder preOrder = new PreOrder();
+                preOrder.setPreOrderID(resultSet.getInt("PreOrderID"));
+                preOrder.setTableID(resultSet.getInt("TableID"));
+                preOrder.setName(resultSet.getString("Name"));
+                preOrder.setPhone(resultSet.getString("Phone"));
+                java.sql.Date bookDate = resultSet.getDate("Book_date");
+                preOrder.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
+                java.sql.Time bookTime = resultSet.getTime("Time");
+                
+                // Sử dụng java.util.Date thay vì java.sql.Date và java.sql.Time
+                preOrder.setBookDate(new java.util.Date(bookDate.getTime()));
+                preOrder.setBookTime((Time) new java.util.Date(bookTime.getTime()));
+
+                preOrders.add(preOrder);
+            }
+        }
+    }
+    return preOrders;
 }
+
+
+}
+
+
