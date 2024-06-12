@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: isp1
+-- Host: localhost    Database: isp392
 -- ------------------------------------------------------
 -- Server version	8.0.37
 
@@ -235,11 +235,13 @@ CREATE TABLE `preordertable` (
   `Name` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `Email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `Phone` varchar(45) DEFAULT NULL,
-  `Book_time` datetime DEFAULT NULL,
+  `Book_date` date DEFAULT NULL,
+  `NumberOfPeople` int DEFAULT NULL,
+  `Time` time DEFAULT NULL,
   PRIMARY KEY (`PreOrderID`),
   KEY `TableID` (`TableID`),
   CONSTRAINT `preordertable_ibfk_1` FOREIGN KEY (`TableID`) REFERENCES `restauranttable` (`TableID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,6 +250,7 @@ CREATE TABLE `preordertable` (
 
 LOCK TABLES `preordertable` WRITE;
 /*!40000 ALTER TABLE `preordertable` DISABLE KEYS */;
+INSERT INTO `preordertable` VALUES (1,NULL,'Minh Quan','quandmhe172272@fpt.edu.vn','0961130576','2024-06-08',3,NULL),(2,NULL,'Minh Quan',NULL,'0961130576','2024-06-28',0,'21:00:00'),(3,NULL,'Minh Quan',NULL,'0961130576','2024-06-16',0,'21:00:00');
 /*!40000 ALTER TABLE `preordertable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +296,7 @@ CREATE TABLE `user` (
   `Email` varchar(100) NOT NULL,
   `Birthdate` date NOT NULL,
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,4 +318,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-28 14:42:41
+-- Dump completed on 2024-06-11 13:21:25
