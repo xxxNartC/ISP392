@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+<<<<<<< HEAD
         <group/>
+        <group name="PRJ">
+            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/web/register.jsp</file>
+            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/Controllers/registerControllers.java</file>
+=======
+        <group>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/ControllerDashbroad/UserController.java</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/Dashboard.jsp</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/login.jsp</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/src/java/ControllerDashbroad/DashBoard.java</file>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/forgot-pass.jsp</file>
+>>>>>>> f457a6fee9c0152b20d084fb179fffbde4e3485b
+        </group>
+=======
+        <group/>
+>>>>>>> ca1b0f2f30a621fce645f28c05edef6db0bbf262
     </open-files>
 </project-private>
