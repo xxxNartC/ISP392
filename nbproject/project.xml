@@ -19,23 +19,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.jakarta.servlet.jsp.jstl-api-2.0.0.jar-2}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jaxb-api-2.1.jar-2}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.sqljdbc42.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.mysql-connector-j-8.4.0.jar-2}</file>
-=======
                     <file>${file.reference.mysql-connector-j-8.4.0.jar}</file>
->>>>>>> f457a6fee9c0152b20d084fb179fffbde4e3485b
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

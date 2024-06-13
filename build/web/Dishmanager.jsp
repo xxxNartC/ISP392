@@ -25,7 +25,7 @@
         <script type="text/javascript">
             function doDelete(id) {
                 if (confirm("are you sure to delete id = " + id)) {
-                    window.location = "DeleteMovie?id=" + id;
+                    window.location = "DeleteDish?id=" + id;
                 }
             }
         </script>
@@ -58,17 +58,17 @@
                         </thead>
                         <tbody>
                             <c:forEach items = "${list}" var="dish">
-                                <c:set var="list" value="${requestScope.list}"/> 
+                                <c:set var="id" value="${dish.dishID}"/> 
                                 <tr>
-                                    <td>${dish.getDishID()}</td>
+                                    <td>${dish.dishID}</td>
 
-                                    <td>${dish.getName()}</td>
-                                    <td>€${dish.getPrice()}</td>
-                                    <td>${dish.getDescription()}</td>
-                                    <td>${dish.getDishType()}</td>
+                                    <td>${dish.name}</td>
+                                    <td>€${dish.price}</td>
+                                    <td>${dish.description}</td>
+                                    <td>${dish.dishType}</td>
                                     <td>
                                         <a href="UpdateMovie?id=${id}" class="btn btn-warning mr-2">Update</a>
-                                        <a href="#" onclick="doDelete('${id}')" class="btn btn-danger">Delete</a>
+                                        <a href="#" onclick="doDelete('${dish.getDishID()}')" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
