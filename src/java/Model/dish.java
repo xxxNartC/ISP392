@@ -4,11 +4,15 @@
  */
 package Model;
 
+import java.io.Serializable;
+import java.text.NumberFormat;
+
 /**
  *
  * @author maingocdat
  */
-public class dish {
+public class dish implements Serializable {
+
     private int DishID;
     private String Name;
     private int Price;
@@ -83,5 +87,9 @@ public class dish {
     public void setImage(String image) {
         this.image = image;
     }
-    
+    public String getPriceCurrencyFormat() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        return currency.format(Price);
+    }
+
 }

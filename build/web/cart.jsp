@@ -67,11 +67,10 @@
         </section>
 
 
-
         <div class="untree_co-section before-footer-section">
             <div class="container">
                 <div class="row mb-5">
-                    <form class="col-md-12" method="post">
+                    <form class="col-md-12" action="" method="post">
                         <div class="site-blocks-table">
                             <table class="table">
                                 <thead>
@@ -85,6 +84,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    
                                     <tr>
                                         <td class="product-thumbnail">
                                             <img src="images/product-1.png" alt="Image" class="img-fluid">
@@ -106,9 +107,11 @@
 
                                         </td>
                                         <td>$49.00</td>
-                                        <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                                        <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                                     </tr>
 
+                                    
+                                    
                                     <tr>
                                         <td class="product-thumbnail">
                                             <img src="images/product-2.png" alt="Image" class="img-fluid">
@@ -130,8 +133,11 @@
 
                                         </td>
                                         <td>$49.00</td>
-                                        <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                                        <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                                     </tr>
+                                    
+                                    
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -142,22 +148,7 @@
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label class="text-black h4" for="coupon">Coupon</label>
-                                <p>Enter your coupon code if you have one.</p>
-                            </div>
-                            <div class="col-md-8 mb-3 mb-md-0">
-                                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-black">Apply Coupon</button>
+                                <a class="btn btn-primary btn-block" href="http://localhost:9999/ISP392-3/dishs">Continue Menu</a>
                             </div>
                         </div>
                     </div>
@@ -187,8 +178,8 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location = 'checkout.html'">Proceed To Checkout</button>
+                                    <div class="form-group col-md-12">
+                                        <button class="btn btn-primary btn-block" onclick="window.location = 'checkout.html'">Proceed To Checkout</button>
                                     </div>
                                 </div>
                             </div>

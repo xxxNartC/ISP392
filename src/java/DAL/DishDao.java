@@ -4,6 +4,7 @@
  */
 package DAL;
 
+import Model.Chef;
 import Model.dish;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,8 +45,8 @@ public class DishDao extends DBConnect {
         dish newDish = new dish(0, "Spaghetti", 0, "Delicious Italian pasta", "Main Course", "spaghetti.jpg");
         String dishType = "Main Course";
         // Thêm món ăn vào cơ sở dữ liệu và kiểm tra xem thêm có thành công hay không
-        List<dish> dishes = dao.getDishesByType(dishType);
-        System.out.println(dishes.get(0).getName());
+        dish dishes = dao.getDishesByID1(16);
+        System.out.println(dishes.getName());
     }
 
     public List<dish> getDishesByType(String dishType) throws SQLException {
@@ -69,6 +70,54 @@ public class DishDao extends DBConnect {
         resultSet.close();
         statement.close();
         return dishes;
+    }
+     public List<dish> getDishesByID(int DishID) throws SQLException {
+        List<dish> dishes = new ArrayList<>();
+        String sql = "SELECT * FROM isp392.dish where dish.DishID =?";
+        PreparedStatement statement = cnn.prepareStatement(sql);
+        statement.setInt(1, DishID);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            dish dish = new dish();
+            dish.setDishID(resultSet.getInt("DishID"));
+            dish.setName(resultSet.getString("Name"));
+            dish.setPrice(resultSet.getInt("Price"));
+            dish.setDescription(resultSet.getString("Description"));
+            dish.setImage(resultSet.getString("image"));
+            dish.setDishType(resultSet.getString("DishType"));
+            dishes.add(dish);
+        }
+
+        resultSet.close();
+        statement.close();
+        return dishes;
+    }
+     public dish getDishesByID1(int DishID) {
+        dish c = null;
+        PreparedStatement stm = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            String strSql = "SELECT * FROM isp392.dish where dish.DishID =?";
+            stm = cnn.prepareStatement(strSql);
+            stm.setInt(1, DishID);
+
+            resultSet = stm.executeQuery();
+
+            if (resultSet.next()) {
+
+                c = new dish(resultSet.getInt("DishID"), resultSet.getString("Name"),
+                        resultSet.getInt("Price"), resultSet.getString("Description"), resultSet.getString("DishType")
+                        , resultSet.getString("image"));
+                return c;
+            }
+        } catch (SQLException e) {
+            System.out.println("getUsers: " + e.getMessage());
+        }
+
+        return null;
     }
 
     public void addDish(dish dish) throws SQLException {

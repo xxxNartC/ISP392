@@ -68,7 +68,7 @@
                                     <td>${dish.getDishType()}</td>
                                     <td>
                                         <a href="UpdateMovie?id=${id}" class="btn btn-warning mr-2">Update</a>
-                                        <a href="#" onclick="doDelete('${id}')" class="btn btn-danger">Delete</a>
+                                        <a href="#" onclick="doDelete('${dish.getDishID()}')" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
