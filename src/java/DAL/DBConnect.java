@@ -20,9 +20,7 @@ public class DBConnect {
             // Thông tin kết nối MySQL
             String url = "jdbc:mysql://localhost:3306/isp392";
             String user = "root";
-            String password = "16062003";
-
-            // Kết nối tới MySQL
+            String password = "123456";
             cnn = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException e) {
             System.out.println("Driver not found: " + e.getMessage());
@@ -37,4 +35,3 @@ public class DBConnect {
     }
 
 }
-

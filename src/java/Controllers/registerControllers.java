@@ -7,6 +7,7 @@ package Controllers;
 import DAL.AccountDAO;
 import Model.Account;
 import Model.Users;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -94,12 +95,29 @@ public class registerControllers extends HttpServlet {
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
+
+        // Kiểm tra username không chứa khoảng trắng, ký tự đặc biệt, và không có số
+        if (!username.matches("^[a-zA-Z]*$")) {
+            request.setAttribute("error", "Username không được chứa khoảng trắng, ký tự đặc biệt và số.");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
+        // Kiểm tra password không chứa khoảng trắng và ký tự đặc biệt
+        if (password.contains(" ") || !password.matches("^[a-zA-Z0-9]*$")) {
+            request.setAttribute("error", "Mật khẩu không được chứa khoảng trắng hoặc ký tự đặc biệt.");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+
         Account newAcc = new Account();
         Users newUsers = new Users();
         newAcc.setUserName(username);
         newAcc.setPassword(password);
         newAcc.setAccountType("user");
-        newAcc.setFotgotPassword(question+answer);
+        newAcc.setFotgotPassword(question + answer);
 
         newUsers.setName(name);
         newUsers.setPhone(phone);
