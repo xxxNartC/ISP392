@@ -95,9 +95,9 @@
                         <div>
                             <!-- phan trang --> 
                             <c:forEach  var="index" begin="1" end ="${totalPage}">
-                                <!--<button style= " width: 30px; height: 30px" name ="page"> <a href="dishmana?page=${index}"> ${index}</a></button>--> 
-                                <input type="submit" style=" width: 30px;height: 30px; margin-left: 2px" name="page" value="${index}" >
+                                <input type="submit" style=" width: 30px;height: 30px; margin-left: 2px" name="page"  value="${index}" >
                             </c:forEach>
+                                <input type="hidden" name="search" value="${search}">
                         </div>
                     </form>
 
