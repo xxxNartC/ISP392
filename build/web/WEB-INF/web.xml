@@ -29,24 +29,20 @@
         <servlet-class>Controllers.profileControllers</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Dishmanager</servlet-name>
-        <servlet-class>ControllerDashbroad.Dishmanager</servlet-class>
+        <servlet-name>ListReservationsServlet</servlet-name>
+        <servlet-class>Controllers.ListReservationsServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UserController</servlet-name>
-        <servlet-class>ControllerDashbroad.UserController</servlet-class>
+        <servlet-name>SearchReservationServlet</servlet-name>
+        <servlet-class>Controllers.SearchReservationServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DashBoard</servlet-name>
-        <servlet-class>ControllerDashbroad.DashBoard</servlet-class>
+        <servlet-name>DeleteReservationServlet</servlet-name>
+        <servlet-class>Controllers.DeleteReservationServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddDishController</servlet-name>
-        <servlet-class>ControllerDashbroad.AddDishController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeleteDishController</servlet-name>
-        <servlet-class>ControllerDashbroad.DeleteDishController</servlet-class>
+        <servlet-name>UpdateResController</servlet-name>
+        <servlet-class>Controllers.UpdateResController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginControllers</servlet-name>
@@ -93,26 +89,30 @@
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Dishmanager</servlet-name>
-        <url-pattern>/dishmana</url-pattern>
+        <servlet-name>ListReservationsServlet</servlet-name>
+        <url-pattern>/ListReservationsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserController</servlet-name>
-        <url-pattern>/usercontroll</url-pattern>
+        <servlet-name>SearchReservationServlet</servlet-name>
+        <url-pattern>/SearchReservationServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DashBoard</servlet-name>
-        <url-pattern>/DashBoard</url-pattern>
+        <servlet-name>DeleteReservationServlet</servlet-name>
+        <url-pattern>/DeleteReservationServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddDishController</servlet-name>
-        <url-pattern>/AddDish</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeleteDishController</servlet-name>
-        <url-pattern>/DeleteDish</url-pattern>
+        <servlet-name>UpdateResController</servlet-name>
+        <url-pattern>/UpdateResController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>SearchResController</servlet-name>
+        <servlet-class>Controllers.SearchResController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchResController</servlet-name>
+        <url-pattern>/SearchResController</url-pattern>
+    </servlet-mapping>
 </web-app>
