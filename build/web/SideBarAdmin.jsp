@@ -40,6 +40,12 @@
                 </a>
             </li>
             <li>
+                <a href="http://localhost:9999/ISP392-3/blogmana" class="nav-link sidebarBtn" >
+                    <i class="fa-solid fa-user pe-3" style="margin-right: 10px"></i>
+                    Blog    
+                </a>
+            </li>
+            <li>
                 <a href="ListAll" class="nav-link sidebarBtn" >
                     <i class="fa-solid fa-list pe-3" style="margin-right: 10px"></i>
                     All
