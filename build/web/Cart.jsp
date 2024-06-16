@@ -69,7 +69,11 @@
                 </div>
             </div>
         </section>
-
+        <form id="cartForm" action="cart" method="post">
+            <input type="hidden" id="dishID" name="dishID" value="">
+            <input type="hidden" id="action" name="action" value="">
+            <input type="hidden" id="num" name="num" value="">
+        </form>
 
         <div class="untree_co-section before-footer-section">
             <div class="container">
@@ -100,11 +104,18 @@
                                             <td>€${item.price}</td>
                                             <td>
                                                 <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                                    <input type="text" class="form-control text-center quantity-amount" value="${item.quantity}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-black decrease" type="button" onclick="updateCart(${item.dish.dishID}, 'update', -1)">&minus;</button>
+                                                    </div>
+                                                    <input type="text" class="form-control text-center quantity-amount" value="${item.quantity}" placeholder="" aria-label="Quantity" aria-describedby="button-addon1" readonly>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-black increase" type="button" onclick="updateCart(${item.dish.dishID}, 'update', 1)">&plus;</button>
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td>€${item.quantity * item.price}</td>
-                                            <td><a href="RemoveItemServlet?dishID=${item.dish.dishID}" class="btn btn-primary btn-sm">X</a></td>
+                                            <td><button type="button" class="btn btn-primary btn-sm" onclick="updateCart(${item.dish.dishID}, 'delete', 0)">X</button></td>
+                                            <!--                                            <td><a  class="btn btn-primary btn-sm" >X</a></td>-->
                                         </tr>
                                     </c:forEach>
 
@@ -149,11 +160,24 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <button class="btn btn-primary btn-block" onclick="window.location = 'checkout.html'">Proceed To Checkout</button>
+                                <c:if test="${sessionScope.account.accountType eq 'user'}">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-primary btn-block" onclick="window.location = 'reservation.jsp'">Proceed To Checkout</button>
+                                            <!--                                                <a class="btn btn-primary btn-block" href="" >Proceed To Checkout</a>-->
+                                        </div>
                                     </div>
-                                </div>
+                                </c:if>
+                                <c:if test="${sessionScope.account.accountType eq null}">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-primary btn-block" onclick="window.location = 'http://localhost:9999/ISP392-3/login'">Proceed To Checkout</button>
+                                        </div>
+                                    </div>
+                                </c:if>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -167,4 +191,12 @@
 
     </body>
 </html>
+<script>
+    function updateCart(dishID, action, num) {
+        document.getElementById("dishID").value = dishID;
+        document.getElementById("action").value = action;
+        document.getElementById("num").value = num;
+        document.getElementById("cartForm").submit();
+    }
+</script>
 

@@ -40,7 +40,8 @@
         <%@include file="header.jsp" %>
         <!-- END nav -->
         <div id="notification" style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4caf50; color: white; padding: 15px; border-radius: 5px; z-index: 1000;">
-            Add successful dishes!
+            <div>Add successful dishes! </div>
+            <div>Your cart have ${size} dishs</div>
         </div>
 
         <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
@@ -80,7 +81,7 @@
 
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
                                     <div class="row no-gutters d-flex align-items-stretch">
-
+                                        <c:set var="size" value="${requestScope.size}"/>
                                         <c:set var="list" value="${requestScope.plats}"/>
                                         <c:forEach items="${plats}" var="dish">
                                             <div class="col-md-12 col-lg-6 d-flex align-self-stretch">

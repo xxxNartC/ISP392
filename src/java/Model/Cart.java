@@ -33,7 +33,7 @@ public class Cart {
 
     private Item getItemById(int id) {
         for (Item i : items) {
-            if(i.getDish().getDishID()==id){
+            if (i.getDish().getDishID() == id) {
                 return i;
             }
         }
@@ -41,25 +41,35 @@ public class Cart {
     }
 
     public void addItem(Item d) {
-        if(getItemById(d.getDish().getDishID())!=null){
+        if (getItemById(d.getDish().getDishID()) != null) {
             Item m = getItemById(d.getDish().getDishID());
-            m.setQuantity(m.getQuantity()+d.getQuantity());
-        }else{
+            m.setQuantity(m.getQuantity() + d.getQuantity());
+        } else {
             items.add(d);
         }
     }
 
     public void removeItem(int id) {
-    if (getItemById(id) != null) {
-        items.remove(getItemById(id));
+        if (getItemById(id) != null) {
+            items.remove(getItemById(id));
+        }
     }
-}
+
+    public void updateItemQuantity(int id, int num) {
+        Item item = getItemById(id);
+        if (item != null) {
+            item.setQuantity(item.getQuantity() + num);
+            if (item.getQuantity() <= 0) {
+                removeItem(id);
+            }
+        }
+    }
 
     public double getTotalPrice() {
-    double d = 0;
+        double d = 0;
         for (Item i : items) {
-            d += (Double)(i.getQuantity() * i.getPrice());
+            d += (Double) (i.getQuantity() * i.getPrice());
         }
-    return d;
-}
+        return d;
+    }
 }
