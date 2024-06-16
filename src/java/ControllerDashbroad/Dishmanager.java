@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,6 +65,14 @@ public class Dishmanager extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("account");
+        String page_raw = (String) request.getParameter("page");
+        String search = (String) request.getParameter("search");
+        int page = 1;
+        try{
+            page = Integer.parseInt(page_raw);
+        }catch(Exception e){
+            
+        }
 
         if (user == null) {
             response.sendRedirect("login");
@@ -74,24 +83,59 @@ public class Dishmanager extends HttpServlet {
             } else {
                 DishDao dao = new DishDao();
                 List<dish> list = null;
+                List<dish> listByPage = new ArrayList<>();;
+                
 
                 try {
+                    if(search == null){
                     list = dao.getAllDishs();
-
-                    System.out.println(list.get(0));
+                    }else{
+                   
+                    list = dao.getAllDishsBySearch(search);
+                    }
+                    
+//                    System.out.println(list.get(0));
+                    if (list.isEmpty()) {
+                        request.setAttribute("message", "No matching results found.");
+                    }else{
+                        int totalPage = 0;
+                    if (list.size() % 5 != 0) {
+                        totalPage = list.size() / 5 + 1;
+                    } else {
+                        totalPage = list.size() / 5;
+                    }
+                    //
+                    for(int i = page*5 - 5; i < page*5 && i < list.size(); i++){
+                        listByPage.add(list.get(i));
+                    }
+                    request.setAttribute("list", listByPage);
+                    request.setAttribute("totalPage", totalPage);
+                    }
 
                 } catch (Exception e) {
                     Logger.getLogger(Dishmanager.class.getName()).log(Level.SEVERE, null, e);
                 }
-                request.setAttribute("list", list);
-                System.out.println(list.get(0));
+                    // lay totalPage
+//                    int totalPage = 0;
+//                    if (list.size() % 5 != 0) {
+//                        totalPage = list.size() / 5 + 1;
+//                    } else {
+//                        totalPage = list.size() / 5;
+//                    }
+//                    //
+//                    for(int i = page*5 - 5; i < page*5 && i < list.size(); i++){
+//                        listByPage.add(list.get(i));
+//                    }
+//                    
+//                    request.setAttribute("list", listByPage);
+//                    request.setAttribute("totalPage", totalPage);
+//                    System.out.println(list.get(0));
 
-                request.getRequestDispatcher("Dishmanager.jsp").forward(request, response);
+                    request.getRequestDispatcher("Dishmanager.jsp").forward(request, response);
+                }
             }
-
         }
 
-    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
