@@ -110,6 +110,8 @@ public class Dishmanager extends HttpServlet {
                     }
                     request.setAttribute("list", listByPage);
                     request.setAttribute("totalPage", totalPage);
+                    request.setAttribute("search", search);
+                     System.out.println(list.get(0));
                     }
 
                 } catch (Exception e) {
