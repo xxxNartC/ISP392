@@ -75,6 +75,8 @@ public class DeleteDishController extends HttpServlet {
 
                 try {
                     int id = Integer.parseInt(id_raw);
+                    System.out.println("Deleting user with ID: " + id); // Thêm dòng này để kiểm tra ID
+
                     if (!dao.isDishExists(id)) {
                         dao.deleteDish(id);
                     } else {
@@ -83,7 +85,7 @@ public class DeleteDishController extends HttpServlet {
 
                     request.getRequestDispatcher("dishmana").forward(request, response);
                 } catch (Exception e) {
-                    
+
                 }
             }
         }

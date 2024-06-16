@@ -35,11 +35,39 @@ public class UserDao extends DBConnect {
         }
         return users;
     }
+    public void deleteUser(int userId) throws SQLException {
+        String query = "DELETE user, account FROM user LEFT JOIN account ON user.UserID = account.UserInfoID WHERE user.UserID = ?";
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setInt(1, userId);
+            statement.executeUpdate();
+        }
+    }
+
+    public boolean isUserExists(int id) {
+        String query = "SELECT COUNT(*) FROM user WHERE UserID = ?";
+        try {
+            PreparedStatement statement = cnn.prepareStatement(query);
+
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle exceptions if any
+        }
+        return false;
+    }
 
     public static void main(String[] args) throws SQLException {
         UserDao d = new UserDao();
-        List<Users> list = new ArrayList<>();
-        list = d.getAllUsers();
-        System.out.println(list);
+        int userIdToDelete = 12; // Thay số này bằng ID của món ăn bạn muốn kiểm tra
+        // Kiểm tra xem món ăn có tồn tại hay không
+        d.deleteUser(userIdToDelete);
+        // Hiển thị kết quả
+        System.out.println("Dish with ID " + userIdToDelete + " has been successfully deleted.");
     }
 }
