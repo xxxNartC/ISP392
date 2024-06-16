@@ -1,5 +1,4 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
@@ -10,14 +9,14 @@ package Model;
  */
 public class CartDish {
     private dish dishs;
-    private int quanlity;
+    private int quantity; // Sửa lỗi chính tả từ 'quanlity' thành 'quantity'
 
     public CartDish() {
     }
 
-    public CartDish(dish dishs, int quanlity) {
+    public CartDish(dish dishs, int quantity) {
         this.dishs = dishs;
-        this.quanlity = quanlity;
+        this.quantity = quantity;
     }
 
     public dish getDishs() {
@@ -28,12 +27,12 @@ public class CartDish {
         this.dishs = dishs;
     }
 
-    public int getQuanlity() {
-        return quanlity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuanlity(int quanlity) {
-        this.quanlity = quanlity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
 }

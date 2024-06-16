@@ -39,6 +39,9 @@
     <body>
         <%@include file="header.jsp" %>
         <!-- END nav -->
+        <div id="notification" style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4caf50; color: white; padding: 15px; border-radius: 5px; z-index: 1000;">
+            Đã thêm món vào giỏ hàng!
+        </div>
 
         <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
@@ -55,6 +58,12 @@
 
         <section class="ftco-section">
             <div class="container">
+                <form id="addToCartForm" action="addtocart" method="post">
+                    <input type="hidden" id="dishID" name="dishID" value="">
+                    <input type="hidden" id="action" name="action" value="add">
+                    <input type="hidden" id="num" name="num" value="1">
+
+                </form>
                 <div class="ftco-search">
                     <div class="row">
                         <div class="col-md-12 nav-link-wrap">
@@ -71,6 +80,7 @@
 
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
                                     <div class="row no-gutters d-flex align-items-stretch">
+
                                         <c:set var="list" value="${requestScope.plats}"/>
                                         <c:forEach items="${plats}" var="dish">
                                             <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
@@ -89,7 +99,7 @@
                                                             </div>
                                                             <p>${dish.getDescription()}</p>
                                                             <div style="margin-left: 145px">
-                                                                <a href="cart?action=add&code=${dish.getDishID()}" class="btn alert-dark">Add to cart</a>
+                                                                <button type="button" class="btn alert-dark" onclick="addToCart(${dish.getDishID()})">Add to cart</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -98,12 +108,7 @@
                                         </c:forEach>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -144,7 +149,7 @@
                                                             </div>
                                                             <p>${dish.getDescription()}</p>
                                                             <div style="margin-left: 145px">
-                                                                <a href="cart.jsp" class="btn alert-dark">Add to cart</a>
+                                                                <button type="button" class="btn alert-dark" onclick="addToCart(${dish.getDishID()})">Add to cart</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -198,7 +203,7 @@
                                                             </div>
                                                             <p>${dish.getDescription()}</p>
                                                             <div style="margin-left: 145px">
-                                                                <a href="cart.jsp" class="btn alert-dark">Add to cart</a>
+                                                                <button type="button" class="btn alert-dark" onclick="addToCart(${dish.getDishID()})">Add to cart</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -233,21 +238,25 @@
                                         <c:forEach items="${wine}" var="dish">
                                             <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
                                                 <div class="menus d-sm-flex ftco-animate align-items-stretch">
-
-                                                    <div class="menu-img img" style="background-image: url('images/${dish.image}');"></div>
+                                                    <div class="menu-img img" style="background-image: url('images/${dish.image}');">
+                                                        <input type="hidden" name="image" value="${dish.getImage()}" >
+                                                    </div>
                                                     <div class="text d-flex align-items-center">
                                                         <div>
                                                             <div class="d-flex">
                                                                 <div class="one-half">
                                                                     <h3>${dish.getName()}</h3>
+                                                                    <input type="hidden" name="name" value="${dish.getName()}" >
                                                                 </div>
                                                                 <div class="one-forth">
                                                                     <span class="price">€${dish.getPrice()}</span>
+                                                                    <input type="hidden" name="price" value="${dish.getPrice()}">
+                                                                    <input type="hidden" name="quantity" value="${dish.getQuantity()}">
                                                                 </div>
                                                             </div>
                                                             <p>${dish.getDescription()}</p>
                                                             <div style="margin-left: 145px">
-                                                                <a href="cart.jsp" class="btn alert-dark">Add to cart</a>
+                                                                <button type="button" class="btn alert-dark" onclick="addToCart(${dish.getDishID()})">Add to cart</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -273,3 +282,21 @@
 
     </body>
 </html>
+<script>
+    function addToCart(dishID) {
+        document.getElementById("dishID").value = dishID;
+        document.getElementById("addToCartForm").submit();
+    }
+    function showNotification() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('added')) {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    }
+
+    window.onload = showNotification;
+</script>

@@ -19,6 +19,7 @@ public class dish implements Serializable {
     private String Description;
     private String DishType;
     private String image;
+    private int Quantity;
 
     public dish() {
     }
@@ -31,14 +32,17 @@ public class dish implements Serializable {
         this.image = image;
     }
 
-    public dish(int DishID, String Name, int Price, String Description, String DishType, String image) {
+    public dish(int DishID, String Name, int Price, String Description, String DishType, String image, int Quantity) {
         this.DishID = DishID;
         this.Name = Name;
         this.Price = Price;
         this.Description = Description;
         this.DishType = DishType;
         this.image = image;
+        this.Quantity = Quantity;
     }
+
+
 
     public int getDishID() {
         return DishID;
@@ -87,9 +91,20 @@ public class dish implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
+
     public String getPriceCurrencyFormat() {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         return currency.format(Price);
     }
+
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int Quantity) {
+        this.Quantity = Quantity;
+    }
+
+
 
 }

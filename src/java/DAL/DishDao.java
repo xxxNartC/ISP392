@@ -29,24 +29,12 @@ public class DishDao extends DBConnect {
                         resultSet.getInt(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getString(6)
+                        resultSet.getString(6),
+                        resultSet.getInt(7)
                 ));
             }
         }
         return dishs;
-    }
-
-    public static void main(String[] args) throws SQLException {
-
-        DishDao dao = new DishDao();
-        
-       
-        
-        dish newDish = new dish(0, "Spaghetti", 0, "Delicious Italian pasta", "Main Course", "spaghetti.jpg");
-        String dishType = "Main Course";
-        // Thêm món ăn vào cơ sở dữ liệu và kiểm tra xem thêm có thành công hay không
-        dish dishes = dao.getDishesByID1(16);
-        System.out.println(dishes.getName());
     }
 
     public List<dish> getDishesByType(String dishType) throws SQLException {
@@ -64,6 +52,7 @@ public class DishDao extends DBConnect {
             dish.setDescription(resultSet.getString("Description"));
             dish.setImage(resultSet.getString("image"));
             dish.setDishType(resultSet.getString("DishType"));
+            dish.setQuantity(resultSet.getInt("Quantity"));
             dishes.add(dish);
         }
 
@@ -71,7 +60,8 @@ public class DishDao extends DBConnect {
         statement.close();
         return dishes;
     }
-     public List<dish> getDishesByID(int DishID) throws SQLException {
+
+    public List<dish> getDishesByID(int DishID) throws SQLException {
         List<dish> dishes = new ArrayList<>();
         String sql = "SELECT * FROM isp392.dish where dish.DishID =?";
         PreparedStatement statement = cnn.prepareStatement(sql);
@@ -86,6 +76,7 @@ public class DishDao extends DBConnect {
             dish.setDescription(resultSet.getString("Description"));
             dish.setImage(resultSet.getString("image"));
             dish.setDishType(resultSet.getString("DishType"));
+            dish.setQuantity(resultSet.getInt("Quantity"));
             dishes.add(dish);
         }
 
@@ -93,7 +84,8 @@ public class DishDao extends DBConnect {
         statement.close();
         return dishes;
     }
-     public dish getDishesByID1(int DishID) {
+
+    public dish getDishesByID1(int DishID) {
         dish c = null;
         PreparedStatement stm = null;
         ResultSet resultSet = null;
@@ -108,9 +100,13 @@ public class DishDao extends DBConnect {
 
             if (resultSet.next()) {
 
-                c = new dish(resultSet.getInt("DishID"), resultSet.getString("Name"),
-                        resultSet.getInt("Price"), resultSet.getString("Description"), resultSet.getString("DishType")
-                        , resultSet.getString("image"));
+                c = new dish(resultSet.getInt("DishID"), 
+                        resultSet.getString("Name"),
+                        resultSet.getInt("Price"),
+                        resultSet.getString("Description"),
+                        resultSet.getString("DishType"),
+                         resultSet.getString("image"),
+                        resultSet.getInt("Quantity"));
                 return c;
             }
         } catch (SQLException e) {
@@ -120,14 +116,26 @@ public class DishDao extends DBConnect {
         return null;
     }
 
+    public static void main(String[] args) throws SQLException {
+
+        DishDao dao = new DishDao();
+
+        dish newDish = new dish(0, "Spaghetti", 0, "Delicious Italian pasta", "Main Course", "spaghetti.jpg", 1);
+        String dishType = "Main Course";
+        // Thêm món ăn vào cơ sở dữ liệu và kiểm tra xem thêm có thành công hay không
+        dish dishes = dao.getDishesByID1(17);
+        System.out.println(dishes.getName());
+    }
+
     public void addDish(dish dish) throws SQLException {
-        String query = "INSERT INTO dish (Name, Description, Price, DishType, image) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO dish (Name, Description, Price, DishType, image) VALUES (?, ?, ?, ?, ?,?)";
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setString(1, dish.getName());
             statement.setString(2, dish.getDescription());
             statement.setInt(3, dish.getPrice());
             statement.setString(4, dish.getDishType());
             statement.setString(5, dish.getImage());
+            statement.setInt(5, dish.getQuantity());
 
             statement.executeUpdate();
         }
