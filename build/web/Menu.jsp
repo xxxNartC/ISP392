@@ -40,7 +40,7 @@
         <%@include file="header.jsp" %>
         <!-- END nav -->
         <div id="notification" style="display: none; position: fixed; top: 10px; right: 10px; background-color: #4caf50; color: white; padding: 15px; border-radius: 5px; z-index: 1000;">
-            Đã thêm món vào giỏ hàng!
+            Add successful dishes!
         </div>
 
         <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
