@@ -49,12 +49,14 @@
         <servlet-class>ControllerDashbroad.DeleteDishController</servlet-class>
     </servlet>
     <servlet>
+
         <servlet-name>UpdateDishController</servlet-name>
         <servlet-class>ControllerDashbroad.UpdateDishController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteUserController</servlet-name>
         <servlet-class>ControllerDashbroad.DeleteUserController</servlet-class>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>loginControllers</servlet-name>
@@ -121,6 +123,7 @@
         <url-pattern>/DeleteDish</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
         <servlet-name>UpdateDishController</servlet-name>
         <url-pattern>/UpdateDish</url-pattern>
     </servlet-mapping>

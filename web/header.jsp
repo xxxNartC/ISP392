@@ -40,7 +40,7 @@
                 <li class="nav-item active"><a href="http://localhost:9999/ISP392-3/home" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="http://localhost:9999/ISP392-3/about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="http://localhost:9999/ISP392-3/dishs" class="nav-link">Menu</a></li>
-                <li class="nav-item"><a href="Blog.jsp" class="nav-link">Stories</a></li>
+                <li class="nav-item"><a href="http://localhost:9999/ISP392-3/blog" class="nav-link">Stories</a></li>
 
             </ul>
         </div>
