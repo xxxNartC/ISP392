@@ -35,10 +35,10 @@
             <div class="container mt-5">
                 <h1 style="margin-bottom: 40px">Add Dish</h1>
                 <form action="AddDish" method="post">
-                    
+
                     <div class="form-row">
 
-                        
+
                         <div class="form-group col-md-12">
                             <label for="Description" style="font-weight: bold">Description</label>
                             <input type="text" class="form-control" id="description" placeholder="Description"  name="Description"required="">
@@ -56,28 +56,33 @@
                             <input type="number" class="form-control" id="price" placeholder="Price"  name="Price" required="">
                         </div>
                     </div>
-                     <div class="form-row">
+                    <div class="form-row">
 
                         <div class="form-group col-md-6">
                             <label for="DishType" style="font-weight: bold">DishType </label>
-                            <input type="text" class="form-control" id="dishtype" placeholder="DishType"  name="DishType"required="">
+                            <select class="form-control" id="dishtype" name="DishType" required="">
+                                <option value="Plats">Plats</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Cocktails">Cocktails</option>
+                                <option value="Wine">Wine</option>
+                            </select>                        
                         </div>
-                        
+
                     </div>
-                     <div class="form-row">
+                    <div class="form-row">
 
                         <div class="form-group col-md-6">
                             <label for="image" style="font-weight: bold">Image</label>
                             <input type="file" class="form-control" id="image" placeholder="image"  name="image"required="" >
                         </div>
                     </div>
-                    
+
                     <button type="submit" class=" d-flex  btn btn-primary updateBtn">Add To System</button>
                 </form>
             </div>
 
         </div>
-          
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

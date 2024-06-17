@@ -41,7 +41,6 @@
             <div class="container" style="margin-top: -20px">
                 <div>
                     <div class="container">
-                        <a href="AddUser" class="btn  p-2" style="background: #58abff; color: white; margin-bottom: 45px;margin-top: 30px "  >Add New User</a>
                     </div>
                 </div>
                 <div class="container" style="margin-top: -30px">
@@ -63,13 +62,11 @@
                                 <tr>
                                     <td>${id}</td>
                                     <td>${c.name}</td>
-                                    <td>${c.email}</td>
                                     <td>${c.phone}</td>
+                                    <td>${c.email}</td>
                                     <td>${c.address}</td>
                                     <td>
                                         <a href="#" onclick="doDelete('${id}')" class="btn btn-danger">Delete</a>
-                                        <a href="UpdateUser?id=${id}" class="btn btn-warning mr-2">Update</a>
-         
                                     </td>
                                 </tr>
                             </c:forEach>
