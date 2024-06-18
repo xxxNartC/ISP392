@@ -106,7 +106,7 @@ public class AddDishController extends HttpServlet {
         try {
 
             dao.addDish(new dish(name, price, des, dishtype, image));
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(AddDishController.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect("dishmana");
