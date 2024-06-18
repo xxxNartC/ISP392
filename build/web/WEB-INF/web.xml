@@ -130,7 +130,6 @@
     <servlet-mapping>
         <servlet-name>DeleteUserController</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
-
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
