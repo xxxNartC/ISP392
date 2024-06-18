@@ -20,7 +20,7 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-               <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+        <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -39,12 +39,14 @@
                         <label for="searchName">Name</label>
                         <input type="text" id="searchName" name="searchName" class="form-control" placeholder="Enter Name" required>
                     </div>
+                    <div class="form-group">
+                        <label for="searchPhone">Phone</label>
+                        <input type="tel" id="searchPhone" name="searchPhone" class="form-control" placeholder="Enter Phone Number">
+                    </div>
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>
         </section>
-
-
         <%@include file="close.jsp" %>
     </body>
 </html>

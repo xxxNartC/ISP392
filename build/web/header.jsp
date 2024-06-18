@@ -30,17 +30,17 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="http://localhost:9999/ISP392-3/home">Branché</a>
+        <a class="navbar-brand" href="http://localhost:8080/ISP392-3/home">Branché</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="http://localhost:9999/ISP392-3/home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="http://localhost:9999/ISP392-3/about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="http://localhost:9999/ISP392-3/dishs" class="nav-link">Menu</a></li>
-                <li class="nav-item"><a href="http://localhost:9999/ISP392-3/blog" class="nav-link">Stories</a></li>
+                <li class="nav-item active"><a href="http://localhost:8080/ISP392-3/home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="http://localhost:8080/ISP392-3/about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="http://localhost:8080/ISP392-3/dishs" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="http://localhost:8080/ISP392-3/blog" class="nav-link">Stories</a></li>
 
             </ul>
         </div>
@@ -51,9 +51,9 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/changePasswordControllers" class="nav-link">Change Password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/profile" class="nav-link">Profile</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:8080/ISP392-3/changePasswordControllers" class="nav-link">Change Password</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:8080/ISP392-3/profile" class="nav-link">Profile</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:8080/ISP392-3/cart"><img src="images/cart.svg"></a></li>
 
                         </ul>
                     </div>
@@ -63,8 +63,8 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item cta" style="margin-left: 5px"><a href="logout" class="nav-link">Logout</a></li>
                             <li class="nav-item cta" style="margin-left: 5px"><a href="changePassword.jsp"" class="nav-link">change password</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/DashBoard" class="nav-link">Management</a></li>
-                            <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:8080/ISP392-3/DashBoard" class="nav-link">Management</a></li>
+                            <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:8080/ISP392-3/cart"><img src="images/cart.svg"></a></li>
                         </ul>
                     </div>
                 </c:if>
@@ -74,9 +74,9 @@
             <c:if test="${sessionScope.account eq null}">
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:9999/ISP392-3/login" class="nav-link">Login</a></li>
+                        <li class="nav-item cta" style="margin-left: 5px"><a href="http://localhost:8080/ISP392-3/login" class="nav-link">Login</a></li>
                         <li class="nav-item cta" style="margin-left: 5px"><a href="register" class="nav-link">Register</a></li>
-                        <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:9999/ISP392-3/cart"><img src="images/cart.svg"></a></li>
+                        <li class="nav-item cta" style="margin-left: 5px"><a class="nav-link" href="http://localhost:8080/ISP392-3/cart"><img src="images/cart.svg"></a></li>
                     </ul>
                 </div>
             </c:if>
