@@ -39,56 +39,60 @@ public class UserDao extends DBConnect {
         return users;
     }
 
-    public Users getUserById(int id) throws SQLException {
-        String query = "SELECT * FROM user WHERE id = ?";
+     public Users getUserById(int userId) {
         Users user = null;
-
-        try (PreparedStatement statement = cnn.prepareStatement(query)) {
-            statement.setInt(1, id);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    String username = resultSet.getString("username");
-                    String email = resultSet.getString("email");
-                    String phone = resultSet.getString("phone");
-                    String address = resultSet.getString("address");
-                    String dob = resultSet.getString("dob");
-
-                    user = new Users(id, username, email, phone, address, dob);
-                }
-            }
-        }
-        return user;
-    }
-
-    public Users getUserByUsername(String username) throws SQLException {
-        String query = "SELECT * FROM users WHERE id = ?";
-        Users user = null;
-
+        String query = "SELECT * FROM user WHERE UserID = ?";
         try (
-                PreparedStatement statement = cnn.prepareStatement(query)) {
-            statement.setString(1, username);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    int id = resultSet.getInt("id");
-                    String name = resultSet.getString("name");
-                    String email = resultSet.getString("email");
-                    String phone = resultSet.getString("phone");
-                    String address = resultSet.getString("address");
-                    String dob = resultSet.getString("dob");
-
-                    user = new Users(id, name, email, phone, address, dob);
+             PreparedStatement ps = cnn.prepareStatement(query)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    user = new Users();
+                    user.setUserId(rs.getInt("UserID"));
+                    user.setName(rs.getString("Name"));
+                    user.setPhone(rs.getString("Phone"));
+                    user.setAddress(rs.getString("Address"));
+                    user.setEmail(rs.getString("Email"));
+                    user.setDob(rs.getString("Birthdate"));
                 }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return user;
     }
+
+
+      
+//    public Users getUserByUsername(String username) throws SQLException {
+//        String query = "SELECT * FROM users WHERE userID = ?";
+//        Users user = null;
+//
+//        try (
+//                PreparedStatement statement = cnn.prepareStatement(query)) {
+//            statement.setString(1, username);
+//            try (ResultSet resultSet = statement.executeQuery()) {
+//                if (resultSet.next()) {
+//                    int id = resultSet.getInt("id");
+//                    String name = resultSet.getString("name");
+//                    String email = resultSet.getString("email");
+//                    String phone = resultSet.getString("phone");
+//                    String address = resultSet.getString("address");
+//                    String dob = resultSet.getString("dob");
+//
+//                    user = new Users(id, name, email, phone, address, dob);
+//                }
+//            }
+//        }
+//        return user;
+//    }
 
     public static void main(String[] args) throws SQLException {
         UserDao d = new UserDao();
 //        List<Users> list = new ArrayList<>();
 //        list = d.getAllUsers();
         Users u = d.getUserById(1);
-        System.out.println(u);
+        System.out.println(u.getEmail());
     }
 
 }

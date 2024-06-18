@@ -24,7 +24,7 @@ public class profileControllers extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession ss = request.getSession(true);
+         HttpSession ss = request.getSession(true);
         // Retrieve the user parameter from the request
         String user_r = request.getParameter("account");
 
@@ -34,8 +34,8 @@ public class profileControllers extends HttpServlet {
         // Fetch the Customer object based on the user_r parameter
         Users user1 = (Users) ss.getAttribute("user");
         try {
-            user1 = dao.getUserByUsername(user_r);
-        } catch (SQLException ex) {
+            user1 = dao.getUserById(1);
+        } catch (Exception ex) {
             Logger.getLogger(profileControllers.class.getName()).log(Level.SEVERE, null, ex);
         }
 

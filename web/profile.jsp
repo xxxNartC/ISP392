@@ -86,27 +86,26 @@
                                         <button class="btn btn-primary" type="button">Upload new image</button>
                                     </div>
                                 </div>
-                                <c:set var="Users" value="${requestScope.pro}" />
                                 <div class="form-group">
                                     <label for="username">User Name</label>
                                     <div>
-                                        <input type="text" class="form-control" id="username" name="name" value="${Users.name}" >
+                                        <input type="text" class="form-control" id="username" name="name" value="${pro.name}" >
                                        
                                     </div>
                                 </div>
                                 <div class="form-group">    
                                     <label for="Email">Email</label>
-                                    <input type="text" class="form-control" id="Email" name="Email" value="${Users.email}">
+                                    <input type="text" class="form-control" id="Email" name="Email" value="${pro.email}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Phone">Phone</label>
-                                    <input type="text" class="form-control" id="Phone" name="Phone" value="${Users.phone}">
+                                    <input type="text" class="form-control" id="Phone" name="Phone" value="${pro.phone}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Address">Address</label>
-                                    <input type="text" class="form-control" id="Address" name="Address" value="${Users.address}">
+                                    <input type="text" class="form-control" id="Address" name="Address" value="${pro.address}">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Edit</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>
