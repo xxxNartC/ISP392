@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Reservation</title>
+    <title>Branché Restaurant - Review Reservation</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container mt-5">
+        <!-- Modal to review reservation -->
         <div class="modal" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -21,12 +21,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p><strong>Name:</strong> <%= request.getAttribute("name") %></p>
-                        <p><strong>Email:</strong> <%= request.getAttribute("email") %></p>
-                        <p><strong>Phone:</strong> <%= request.getAttribute("phone") %></p>
-                        <p><strong>Date:</strong> <%= request.getAttribute("bookDate") %></p>
-                        <p><strong>Table Number:</strong> <%= request.getAttribute("tableNumber") %></p>
-                        <p><strong>Time:</strong> <%= request.getAttribute("bookTime") %></p>
+                        <p><strong>Name:</strong> <%= request.getParameter("name") %></p>
+                        <p><strong>Phone:</strong> <%= request.getParameter("phone") %></p>
+                        <p><strong>Date:</strong> <%= request.getParameter("book_date") %></p>
+                        <p><strong>Time:</strong> <%= request.getParameter("book_time") %></p>
+                        <p><strong>Number of People:</strong> <%= request.getParameter("number_of_people") %></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="window.history.back();">Go Back</button>
@@ -36,6 +35,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function(){
