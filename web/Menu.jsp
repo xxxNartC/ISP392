@@ -298,6 +298,5 @@
             }, 3000);
         }
     }
-
     window.onload = showNotification;
 </script>
