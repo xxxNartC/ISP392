@@ -4,8 +4,11 @@
  */
 package DAL;
 
+import Model.Account;
 import Model.Users;
 import Model.dish;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,10 +39,56 @@ public class UserDao extends DBConnect {
         return users;
     }
 
+    public Users getUserById(int id) throws SQLException {
+        String query = "SELECT * FROM user WHERE id = ?";
+        Users user = null;
+
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String username = resultSet.getString("username");
+                    String email = resultSet.getString("email");
+                    String phone = resultSet.getString("phone");
+                    String address = resultSet.getString("address");
+                    String dob = resultSet.getString("dob");
+
+                    user = new Users(id, username, email, phone, address, dob);
+                }
+            }
+        }
+        return user;
+    }
+
+    public Users getUserByUsername(String username) throws SQLException {
+        String query = "SELECT * FROM users WHERE id = ?";
+        Users user = null;
+
+        try (
+                PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setString(1, username);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    String email = resultSet.getString("email");
+                    String phone = resultSet.getString("phone");
+                    String address = resultSet.getString("address");
+                    String dob = resultSet.getString("dob");
+
+                    user = new Users(id, name, email, phone, address, dob);
+                }
+            }
+        }
+        return user;
+    }
+
     public static void main(String[] args) throws SQLException {
         UserDao d = new UserDao();
-        List<Users> list = new ArrayList<>();
-        list = d.getAllUsers();
-        System.out.println(list);
+//        List<Users> list = new ArrayList<>();
+//        list = d.getAllUsers();
+        Users u = d.getUserById(1);
+        System.out.println(u);
     }
+
 }

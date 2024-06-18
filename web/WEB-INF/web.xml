@@ -44,6 +44,22 @@
         <servlet-name>AddDishController</servlet-name>
         <servlet-class>ControllerDashbroad.AddDishController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddTableController</servlet-name>
+        <servlet-class>ControllerDashbroad.AddTableController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservationsManager</servlet-name>
+        <servlet-class>ControllerDashbroad.ReservationsManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReserProcessing</servlet-name>
+        <servlet-class>ControllerDashbroad.ReserProcessing</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservationProcessing</servlet-name>
+        <servlet-class>ControllerDashbroad.ReservationProcessing</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginControllers</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -103,6 +119,22 @@
     <servlet-mapping>
         <servlet-name>AddDishController</servlet-name>
         <url-pattern>/AddDish</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTableController</servlet-name>
+        <url-pattern>/AddTable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReservationsManager</servlet-name>
+        <url-pattern>/ReservationsManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReserProcessing</servlet-name>
+        <url-pattern>/ReserProcessing</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReservationProcessing</servlet-name>
+        <url-pattern>/ReservationProcessing</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>

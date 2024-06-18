@@ -12,6 +12,11 @@ import java.util.Date;
  */
 public class Users {
 
+   
+    
+
+   
+
     private int userId;
     private String name;
     private String email;
@@ -30,6 +35,16 @@ public class Users {
         this.phone = phone;
         this.dob = dob;
     }
+
+    public Users(String name, String email, String address, String phone) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+    }
+
+   
+    
 
     public int getUserId() {
         return userId;
@@ -78,6 +93,8 @@ public class Users {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+    
 
     
 }

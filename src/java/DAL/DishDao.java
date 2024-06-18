@@ -38,16 +38,10 @@ public class DishDao extends DBConnect {
     public static void main(String[] args) throws SQLException {
 
         DishDao dao = new DishDao();
-        
-       
-        
-        dish newDish = new dish(0, "Spaghetti", 0, "Delicious Italian pasta", "Main Course", "spaghetti.jpg");
-        String dishType = "Main Course";
-        // Thêm món ăn vào cơ sở dữ liệu và kiểm tra xem thêm có thành công hay không
+        String dishType = "Cocktails";
         List<dish> dishes = dao.getDishesByType(dishType);
         System.out.println(dishes.get(0).getName());
     }
-
     public List<dish> getDishesByType(String dishType) throws SQLException {
         List<dish> dishes = new ArrayList<>();
         String sql = "SELECT * FROM dish WHERE DishType = ?";
@@ -71,17 +65,9 @@ public class DishDao extends DBConnect {
         return dishes;
     }
 
-    public void addDish(dish dish) throws SQLException {
-        String query = "INSERT INTO dish (Name, Description, Price, DishType, image) VALUES (?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = cnn.prepareStatement(query)) {
-            statement.setString(1, dish.getName());
-            statement.setString(2, dish.getDescription());
-            statement.setInt(3, dish.getPrice());
-            statement.setString(4, dish.getDishType());
-            statement.setString(5, dish.getImage());
-
-            statement.executeUpdate();
-        }
+    public void addDish(dish dish) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
 }
+
+

@@ -2,16 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-        <group name="PRJ">
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/Controllers/homeControllers.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/Controllers/profileControllers.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/DAL/AccountDAO.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/DAL/ChefDAO.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/DAL/DishDao.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/DAL/DBConnect.java</file>
-            <file>file:/C:/Users/chutu/OneDrive/Máy%20tính/ISP392/src/java/DAL/PreOrderDAO.java</file>
+        <group>
+            <file>file:/D:/FPT/PRJ302/Code/PE_PRJ301/PE_PRJ301/DE10_FALL2023HOLA/ISP392-3/web/register.jsp</file>
         </group>
+        <group name="PRJ"/>
     </open-files>
 </project-private>

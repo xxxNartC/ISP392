@@ -1,28 +1,33 @@
 package Model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class PreOrder {
-    private int preOrderID; // Trường này sẽ tự động tăng
+    private int preOrderID; // This field will auto-increment
     private int tableID;
     private String name;
-    private String email;
     private String phone;
-    private Date bookTime;
+    private Date bookDate;
+    private int numberOfPeople;
+    private Date time;
+//    private String status;
+//    private String comment;
     
     // Constructors
     public PreOrder() {
     }
 
-    public PreOrder(int tableID, String name, String email, String phone, Date bookTime) {
+    public PreOrder(int preOrderID, int tableID, String name, String phone, Date bookDate, int numberOfPeople, Date time) {
+        this.preOrderID = preOrderID;
         this.tableID = tableID;
         this.name = name;
-        this.email = email;
         this.phone = phone;
-        this.bookTime = bookTime;
+        this.bookDate = bookDate;
+        this.numberOfPeople = numberOfPeople;
+        this.time = time;
     }
 
-    // Getters and Setters
     public int getPreOrderID() {
         return preOrderID;
     }
@@ -47,14 +52,6 @@ public class PreOrder {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -63,13 +60,50 @@ public class PreOrder {
         this.phone = phone;
     }
 
-    public Date getBookTime() {
-        return bookTime;
+    public Date getBookDate() {
+        return bookDate;
     }
 
-    public void setBookTime(Date bookTime) {
-        this.bookTime = bookTime;
+    public void setBookDate(Date bookDate) {
+        this.bookDate = bookDate;
     }
 
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
+
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public void setBookTime(Time time) {
+    this.time = new Date(time.getTime());
+}
+
+//    public String getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
+//
+//    public String getComment() {
+//        return comment;
+//    }
+//
+//    public void setComment(String comment) {
+//        this.comment = comment;
+//    }
     
+    
+
 }

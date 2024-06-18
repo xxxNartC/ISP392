@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li >
-                <a href="DashBoard" class="nav-link d-flex align-items-center" >
+                <a href="http://localhost:9999/ISP392-3/ReservationProcessing" class="nav-link d-flex align-items-center" >
                     <i class="fa-solid fa-chart-simple" style="margin-right: 10px"></i>
                     Dashboard
                 </a>
