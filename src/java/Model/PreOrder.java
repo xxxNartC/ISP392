@@ -1,6 +1,6 @@
 package Model;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.util.Date;
 
 public class PreOrder {
@@ -8,23 +8,22 @@ public class PreOrder {
     private int tableID;
     private String name;
     private String phone;
-    private String email;
-    private Timestamp bookDate;
+    private Date bookDate;
     private int numberOfPeople;
-    private int status;
-
+    private Date time;
+    
+    // Constructors
     public PreOrder() {
     }
 
-    public PreOrder(int preOrderID, int tableID, String name, String phone, String email, Timestamp bookDate, int numberOfPeople, int status) {
+    public PreOrder(int preOrderID, int tableID, String name, String phone, Date bookDate, int numberOfPeople, Date time) {
         this.preOrderID = preOrderID;
         this.tableID = tableID;
         this.name = name;
         this.phone = phone;
-        this.email = email;
         this.bookDate = bookDate;
         this.numberOfPeople = numberOfPeople;
-        this.status = status;
+        this.time = time;
     }
 
     public int getPreOrderID() {
@@ -59,19 +58,11 @@ public class PreOrder {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Timestamp getBookDate() {
+    public Date getBookDate() {
         return bookDate;
     }
 
-    public void setBookDate(Timestamp bookDate) {
+    public void setBookDate(Date bookDate) {
         this.bookDate = bookDate;
     }
 
@@ -83,13 +74,16 @@ public class PreOrder {
         this.numberOfPeople = numberOfPeople;
     }
 
-    public int getStatus() {
-        return status;
+    public Date getTime() {
+        return time;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setTime(Date time) {
+        this.time = time;
     }
-    
-    
+
+    public void setBookTime(Time time) {
+    this.time = new Date(time.getTime());
+}
+
 }
