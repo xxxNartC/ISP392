@@ -181,16 +181,14 @@ public class DishDao extends DBConnect {
     }
 
     public void updateDish(dish dish) throws SQLException {
-        String query = "UPDATE dish SET Description = ?, Name = ?, Price = ?, DishType = ?, image = ? WHERE DishID = ?";
+        String query = "UPDATE dish SET Description = ?, Name = ?, Price = ?, DishType = ? WHERE DishID = ?";
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
 
             statement.setString(1, dish.getDescription());
             statement.setString(2, dish.getName());
             statement.setInt(3, dish.getPrice());
             statement.setString(4, dish.getDishType());
-            statement.setString(5, dish.getImage());
-            statement.setInt(6, dish.getDishID());
-            statement.setInt(7, dish.getQuantity());
+            statement.setInt(5, dish.getDishID());
             statement.executeUpdate();
         }
     }
