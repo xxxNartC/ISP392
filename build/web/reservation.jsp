@@ -1,40 +1,25 @@
-<%-- 
-    Document   : reservation
-    Created on : 18 thg 5, 2024, 23:13:47
-    Author     : DELL
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>FBranché Restaurant</title>
+        <title>Branché Restaurant</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
         <link rel="stylesheet" href="css/animate.css">
-
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="css/magnific-popup.css">
-
         <link rel="stylesheet" href="css/aos.css">
-
         <link rel="stylesheet" href="css/ionicons.min.css">
-
-
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <!-- END nav -->
-
         <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
@@ -55,90 +40,69 @@
                             <div class="heading-section ftco-animate mb-5">
                                 <span class="subheading">Book a table</span>
                             </div>
+                            <div class="col-md-12 mt-3">
+                                        <div class="form-group">
+                                            <a href="searchRes.jsp" class="btn btn-primary py-3 px-5">Edit your reservation</a>
+                                        </div>
+                                    </div>
                             <form action="ResControllers" method="POST">
                                 <div class="row">
-                                    <!-- Name Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>">
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                                         </div>
                                     </div>
-
-                                    <!-- Email Field -->
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>">
-                                        </div>
+                                        <!--                                    <div class="form-group">
+                                                                                <label for="email">Email</label>
+                                                                                <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                                                                            </div>-->
                                     </div>
-
-                                    <!-- Phone Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" value="<%= request.getParameter("phone") != null ? request.getParameter("phone") : "" %>">
+                                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" required>
                                         </div>
                                     </div>
-
-                                    <!-- Date Field -->
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="book_date">Date</label>
-                                            <input type="date" id="book_date" name="book_date" class="form-control" placeholder="Date">
+                                            <input type="date" id="book_date" name="book_date" class="form-control" placeholder="Date" min="<%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()) %>" required>
                                         </div>
                                     </div>
-
-
-
-
-
-                                    <!-- Trường chọn bàn -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="table_number">Table Number</label>
-                                            <select id="table_number" name="table_number" class="form-control">
-                                                <option value="">Select Table Number</option>
-                                                <option value="1">Table 1</option>
-                                                <option value="2">Table 2</option>
-                                                <option value="3">Table 3</option>
-                                                <option value="4">Table 4</option>
-                                                <option value="5">Table 5</option>
-                                                <option value="6">Table 6</option>
-                                                <option value="7">Table 7</option>
-                                                <option value="8">Table 8</option>
-                                                <option value="9">Table 9</option>
-                                                <option value="10">Table 10</option>
-                                            </select>
+                                            <label for="number_of_people">Number of People</label>
+                                            <input type="number" id="number_of_people" name="number_of_people" class="form-control" value="1" min="1" max="20" required>
                                         </div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="book_time">Time</label>
-                                            <div class="select-wrap one-third">
-                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                <select id="book_time" name="book_time" class="form-control">
-                                                    <option value="">Select Time</option>
-                                                    <option value="12:00 PM">12:00 PM</option>
-                                                    <option value="12:30 PM">12:30 PM</option>
-                                                    <option value="1:00 PM">1:00 PM</option>
-                                                    <option value="6:00 PM">6:00 PM</option>
-                                                    <option value="6:30 PM">6:30 PM</option>
-                                                    <option value="7:00 PM">7:00 PM</option>
-                                                </select>
-                                            </div>
+                                            <select id="book_time" name="book_time" class="form-control" required>
+                                                <option value="">Select Time</option>
+                                                <option value="18:00">6:00 PM</option>                                                  
+                                                <option value="18:30">6:30 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                                <option value="19:30">7:30 PM</option>
+                                                <option value="20:00">8:00 PM</option>
+                                                <option value="20:30">8:30 PM</option>
+                                                <option value="21:00">9:00 PM</option>
+                                                <option value="21:30">9:30 PM</option>
+                                            </select>
                                         </div>
                                     </div>
-
-                                    <!-- Submit Button -->
                                     <div class="col-md-12 mt-3">
                                         <div class="form-group">
                                             <input type="submit" value="Make a Reservation" class="btn btn-primary py-3 px-5">
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </form>
+
+
                         </div>
                     </div>
                     <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0">
@@ -150,4 +114,4 @@
 
         <%@include file="close.jsp" %>
     </body>
-</html> 
+</html>
