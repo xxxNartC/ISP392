@@ -61,36 +61,44 @@
                                     ${errorMessage}
                                 </div>
                             </c:if>
-                            <h2 class="mb-4">Pre Order Detail</h2>
-                            <form action="ReservationManager?action=edit" method="POST">
+                          
+                    <div class="form-row">
+
+                          <h2 class="mb-4">Pre Order Detail</h2>
+                            <form action="ReservationManager" method="POST">
                                 <input type="hidden" name="preOrderID" value="${preOrder.preOrderID}">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" value="${preOrder.name}" readonly>
+                                <div class="form-group col-md-6">
+                                    <label for="name" style="font-weight: bold">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Name" value="${preOrder.name}" name="name" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" value="${preOrder.email}" readonly>
+                                <div class="form-group col-md-6">
+                                    <label for="phone" style="font-weight: bold">Phone</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Phone" value="${preOrder.phone}" name="phone" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" name="phone" class="form-control" value="${preOrder.phone}" readonly>
+                                <div class="form-group col-md-6">
+                                    <label for="tableID" style="font-weight: bold">Table ID</label>
+                                    <input type="number" class="form-control" id="tableID" placeholder="Table ID" value="${preOrder.tableID}" name="tableID" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="book_date">Book Date</label>
-                                    <input type="datetime-local" id="book_date" name="book_date" class="form-control" value="${preOrder.bookDate}" readonly>
+                                <div class="form-group col-md-6">
+                                    <label for="bookDate" style="font-weight: bold">Book Date</label>
+                                    <input type="datetime-local" class="form-control" id="bookDate" placeholder="Book Date" value="${preOrder.bookDate}" name="book_date" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="number_of_people">Number of People</label>
-                                    <input type="number" id="number_of_people" name="number_of_people" class="form-control" value="${preOrder.numberOfPeople}" min="1" max="20" readonly>
+                                <div class="form-group col-md-6">
+                                    <label for="numberOfPeople" style="font-weight: bold">Number of People</label>
+                                    <input type="number" class="form-control" id="numberOfPeople" placeholder="Number of People" value="${preOrder.numberOfPeople}" name="number_of_people" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select name="status" class="form-control">
-                                        <option value="0" ${preOrder.status == 0 ? "seletect" : ""}>New</option>
-                                        <option value="1" ${preOrder.status == 1 ? "seletect" : ""}>Accept</option>
-                                        <option value="2" ${preOrder.status == 2 ? "seletect" : ""}>Reject</option>
-                                    </select>
+                                <div class="form-group col-md-6">
+                                    <label for="time" style="font-weight: bold">Time</label>
+                                    <input type="time" class="form-control" id="time" placeholder="Time" value="${preOrder.time}" name="time" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="status" style="font-weight: bold">Status</label>
+                                    <select class="form-control" id="status" name="status" required>
+                                        <option value="${preOrder.status}">${preOrder.status}</option>
+                                        <option value="New">New</option>
+                                        <option value="Accepted">Accepted</option>
+                                        <option value="Rejected">Rejected</option>
+                                    </select>                        
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
