@@ -42,10 +42,14 @@
         <div class="container mt-5">
             <div class="card">
                 <form action="UpdateBlog" method="post" enctype="multipart/form-data">
+                    <div>
+                    <div class="container">
+                        <a href="blogmana" class="btn  p-2" style="background: #58abff; color: white; margin-bottom: 45px;margin-top: 30px "  >Back</a>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
                             <img src="./images/${blog.image}" alt="alt" class="img-fluid">
-                        </div>
+                        </div>  
                         <div class="col-md-8">
                             <input type="hidden" name="id" value="${blog.blogid}">
                             <div class="form-group">
