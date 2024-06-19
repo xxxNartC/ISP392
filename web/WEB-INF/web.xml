@@ -113,6 +113,15 @@
         <servlet-class>Controllers.SearchResController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>ManagerProcessing</servlet-name>
+        <servlet-class>ControllerDashbroad.ManagerProcessing</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservationManager</servlet-name>
+        <servlet-class>ControllerDashbroad.ReservationManager</servlet-class>
+    </servlet>
+
     <!-- Servlet Mappings -->
     <servlet-mapping>
         <servlet-name>loginControllers</servlet-name>
@@ -223,6 +232,14 @@
     <servlet-mapping>
         <servlet-name>UpdateResController</servlet-name>
         <url-pattern>/UpdateResController</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ManagerProcessing</servlet-name>
+        <url-pattern>/ManagerProcessing</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ReservationManager</servlet-name>
+        <url-pattern>/ReservationManager</url-pattern>
     </servlet-mapping>
 
     <!-- Welcome File List -->
