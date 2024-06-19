@@ -75,12 +75,37 @@
         <servlet-class>ControllerDashbroad.DeleteDishController</servlet-class>
     </servlet>
     <servlet>
+
+        <servlet-name>blogController</servlet-name>
+        <servlet-class>Controllers.blogController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Blogmanager</servlet-name>
+        <servlet-class>ControllerDashbroad.Blogmanager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddBlogController</servlet-name>
+        <servlet-class>ControllerDashbroad.AddBlogController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBlogServlet</servlet-name>
+        <servlet-class>ControllerDashbroad.DeleteBlogServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBlogServlet</servlet-name>
+        <servlet-class>ControllerDashbroad.UpdateBlogServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BlogDetailServlet</servlet-name>
+<servlet-class>ControllerDashbroad.BlogDetailServlet</servlet-class>
+
         <servlet-name>UpdateDishController</servlet-name>
         <servlet-class>ControllerDashbroad.UpdateDishController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteUserController</servlet-name>
         <servlet-class>ControllerDashbroad.DeleteUserController</servlet-class>
+
     </servlet>
     <servlet>
         <servlet-name>SearchResController</servlet-name>
@@ -145,12 +170,37 @@
         <url-pattern>/DeleteDish</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
+        <servlet-name>blogController</servlet-name>
+        <url-pattern>/blog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Blogmanager</servlet-name>
+        <url-pattern>/blogmana</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBlogController</servlet-name>
+        <url-pattern>/AddBlog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBlogServlet</servlet-name>
+        <url-pattern>/DeleteBlog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+<servlet-name>UpdateBlogServlet</servlet-name>
+        <url-pattern>/UpdateBlog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlogDetailServlet</servlet-name>
+        <url-pattern>/BlogDetail</url-pattern>
+
         <servlet-name>UpdateDishController</servlet-name>
         <url-pattern>/UpdateDish</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUserController</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
+
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SearchResController</servlet-name>
