@@ -103,17 +103,17 @@ public class ManagerProcessing extends HttpServlet {
                         int preOrderID = Integer.parseInt(request.getParameter("preOrderID"));
                         PreOrder preOrder = preOrderDao.getPreOrderById(preOrderID);
                         if (preOrder != null) {
-                            boolean result = preOrderDao.updateStatusPreOrder(status, preOrderID);
+                            boolean result = preOrderDao.updateStatusPreOrder(preOrderID, status);
                             if (result) {
-                                response.sendRedirect("ManagerPreOrderController?success=Change status successfully");
+                                response.sendRedirect("ManagerProcessing?success=Change status successfully");
                             } else {
-                                response.sendRedirect("ManagerPreOrderController?error=Change status failed");
+                                response.sendRedirect("ManagerProcessing?error=Change status failed");
                             }
                         } else {
-                            response.sendRedirect("ManagerPreOrderController?error=Cannot find this pre-order");
+                            response.sendRedirect("ManagerProcessing?error=Cannot find this pre-order");
                         }
                     } catch (Exception e) {
-                        response.sendRedirect("ManagerPreOrderController?error=ID is not valid");
+                        response.sendRedirect("ManagerProcessing?error=ID is not valid");
                     }
                     break;
                 default:
