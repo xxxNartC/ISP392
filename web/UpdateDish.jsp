@@ -24,6 +24,11 @@
                 background-color: #ccc;
                 color: #17a2b8
             }
+            .form-img {
+                max-width: 150px; 
+                height: auto; 
+                margin-bottom: 20px; 
+            }
         </style>
     </head>
     <body>
@@ -35,6 +40,7 @@
             <div class="container mt-5">
                 <h1 style="margin-bottom: 40px">Update Dish</h1>
                 <form action="UpdateDish" method="post">
+                    <img src="./images/${dish.image}" alt="alt" class="form-img"/>
                     <input value="${dish.dishID}" name="id" hidden="">
                     <div class="form-row">
 
