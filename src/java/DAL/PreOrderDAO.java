@@ -117,16 +117,16 @@ public class PreOrderDAO extends DBConnect {
     }
 
     // Update the status of a pre-order
-    public boolean updateStatusPreOrder(String status, int id) {
-        String query = "UPDATE preordertable SET Status = ? WHERE PreOrderID = ?";
+  public boolean updateStatusPreOrder(int status, int id) {
+        String query = "UPDATE `preordertable` SET `status` = ? WHERE `PreOrderID` = ?";
         boolean rowUpdated = false;
 
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
-            statement.setString(1, status);
+            statement.setInt(1, status);
             statement.setInt(2, id);
             rowUpdated = statement.executeUpdate() > 0;
         } catch (Exception e) {
-            System.out.println("Error updating pre-order status: " + e.getMessage());
+            System.out.println("Lỗi khi cập nhật đơn đặt bàn: " + e.getMessage());
         }
         return rowUpdated;
     }
