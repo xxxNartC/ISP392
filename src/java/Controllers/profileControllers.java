@@ -5,12 +5,17 @@
 
 package Controllers;
 
+import DAL.UserDao;
+import Model.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -70,11 +75,9 @@ public class profileControllers extends HttpServlet {
 
         // Set the retrieved Customer object as a request attribute
         ss.setAttribute("pro", user1);
-
-        // Forward the request to profile.jsp for displaying the profile
+// Forward the request to profile.jsp for displaying the profile
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
-    
 
     /** 
      * Handles the HTTP <code>POST</code> method.
