@@ -40,11 +40,19 @@
                     <div class="container">
                         <a href="AddDish" class="btn  p-2" style="background: #58abff; color: white; margin-bottom: 45px;margin-top: 30px "  >Add New Dish</a>
                     </div>
-                    
-                    
                 </div>
-                <div class="container" style="margin-top: -30px">
-                    <a href="" style="text-decoration: none; color: #58abff"><h2 style="color: white">List Dish</h2></a>
+
+
+                <div class="search-bar w3layouts-newsletter">
+                    <h3 class="sear-head editContent" >Search Dishs</h3>
+                    <form action="dishmana" method="get" class="d-flex editContent" >
+                        <input type="search" placeholder="Search Dishs" name="search" class="form-control" required="" value="${search}">
+                        <button class="btn1 btn" ><span class="fa fa-search" aria-hidden="true" ></span></button>
+                    </form>
+                </div>
+                <div class="container">
+                    <a href="" style="text-decoration: none; color: #58abff"><h2 style="color: black; text-align: center;margin-top: 20px">List Dish</h2></a>
+
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
@@ -56,6 +64,7 @@
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <c:forEach items = "${list}" var="dish">
                                 <c:set var="id" value="${dish.dishID}"/> 
@@ -67,16 +76,33 @@
                                     <td>${dish.description}</td>
                                     <td>${dish.dishType}</td>
                                     <td>
-                                        <a href="UpdateMovie?id=${id}" class="btn btn-warning mr-2">Update</a>
+                                        <a href="UpdateDish?id=${dish.dishID}" class="btn btn-warning mr-2">Update</a>
                                         <a href="#" onclick="doDelete('${dish.getDishID()}')" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-warning" role="alert">
+                            ${message}
+                        </div>
+                    </c:if>
 
                 </div>
-               
+                <div>
+                    <form action="dishmana" method="get">
+                        <div>
+                            <!-- phan trang --> 
+                            <c:forEach  var="index" begin="1" end ="${totalPage}">
+                                <input type="submit" style=" width: 30px;height: 30px; margin-left: 2px" name="page"  value="${index}" >
+                            </c:forEach>
+                                <input type="hidden" name="search" value="${search}">
+                        </div>
+                    </form>
+
+                </div>
+
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -34,6 +34,32 @@ public class DishDao extends DBConnect {
         }
         return dishs;
     }
+    public List<dish> getAllDishsBySearch(String search) throws SQLException {
+    List<dish> dishs = new ArrayList<>();
+    String query = "SELECT * FROM dish WHERE Name LIKE ?";
+    
+    try (
+        PreparedStatement statement = cnn.prepareStatement(query)
+    ) {
+        statement.setString(1, "%" + search + "%");
+        try (ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                dishs.add(new dish(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6)
+                ));
+            }
+        }
+    }
+    return dishs;
+}
+
+        
+    
 
     public List<dish> getDishesByType(String dishType) throws SQLException {
         List<dish> dishes = new ArrayList<>();
@@ -98,6 +124,41 @@ public class DishDao extends DBConnect {
         return false;
     }
 
+    public dish getDishById(int dishId) throws SQLException {
+        String query = "SELECT * FROM dish WHERE DishID = ?";
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setInt(1, dishId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return new dish(
+                            resultSet.getInt("DishID"),
+                            resultSet.getString("Name"),
+                            resultSet.getInt("Price"),
+                            resultSet.getString("Description"),
+                            resultSet.getString("DishType"),
+                            resultSet.getString("image")
+                    );
+                }
+            }
+        }
+        return null;
+    }
+
+    public void updateDish(dish dish) throws SQLException {
+        String query = "UPDATE dish SET Description = ?, Name = ?, Price = ?, DishType = ?, image = ? WHERE DishID = ?";
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+
+            statement.setString(1, dish.getDescription());
+            statement.setString(2, dish.getName());
+            statement.setInt(3, dish.getPrice());
+            statement.setString(4, dish.getDishType());
+            statement.setString(5, dish.getImage());
+            statement.setInt(6, dish.getDishID());
+            statement.executeUpdate();
+        }
+    }
+    
+
     public static void main(String[] args) throws SQLException {
 
 //        DishDao dao = new DishDao();
@@ -111,12 +172,8 @@ public class DishDao extends DBConnect {
 //        System.out.println(dishes.get(0).getName());
         DishDao dao = new DishDao(); // Truyền kết nối tới cơ sở dữ liệu vào đối tượng DishDao
 
-        // ID của món ăn bạn muốn kiểm tra tồn tại
-        int dishIdToDelete = 39; // Thay số này bằng ID của món ăn bạn muốn kiểm tra
-        // Kiểm tra xem món ăn có tồn tại hay không
-        dao.deleteDish(dishIdToDelete);
-        // Hiển thị kết quả
-                System.out.println("Dish with ID " + dishIdToDelete + " has been successfully deleted.");
+        
+        System.out.println(dao.getAllDishsBySearch("Long"));
 
     }
 }

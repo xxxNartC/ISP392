@@ -37,10 +37,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="Name" style="font-weight: bold">Description </label>
-                    <input type="text" class="form-control" id="description" placeholder="description"  name="description"required="">
+                    <label for="description" style="font-weight: bold">Description</label>
+                    <textarea class="form-control" id="description" name="description" placeholder="description" required=""></textarea>
                 </div>
             </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="image" style="font-weight: bold">Image</label>

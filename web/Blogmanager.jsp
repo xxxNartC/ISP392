@@ -46,7 +46,7 @@
                                 <th scope="col">Blog ID</th>
                                 <th scope="col">Title</th>                                                          
                                 <th scope="col">Description</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +56,7 @@
                                     <td>${blog.blogid}</td>
                                     <td>${blog.title}</td>
                                     <td>${blog.description}</td>
+                                    <td>${blog.date}</td>
                                     <td>
                                         <a href="BlogDetail?id=${id}" class="btn btn-warning mr-2">Update</a>
                                         <a href="DeleteBlog?id=${id}" class="btn btn-danger">Delete</a>
