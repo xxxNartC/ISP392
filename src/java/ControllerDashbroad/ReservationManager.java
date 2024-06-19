@@ -69,39 +69,24 @@ public class ReservationManager extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         String preOrderIDStr = request.getParameter("preOrderID");
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String tableIDStr = request.getParameter("tableID");
-        String bookDateStr = request.getParameter("book_date");
-        String numberOfPeopleStr = request.getParameter("number_of_people");
-        String timeStr = request.getParameter("time");
-        String status = request.getParameter("status");
+    String status = request.getParameter("status");
 
-        String errorMessage = null;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+    try {
+        int preOrderID = Integer.parseInt(preOrderIDStr);
+        
+        PreOrderDAO dao = new PreOrderDAO();
+        boolean updated = dao.updateStatusPreOrder(preOrderID, status);
 
-        try {
-            int preOrderID = Integer.parseInt(preOrderIDStr);
-            int tableID = Integer.parseInt(tableIDStr);
-            int numberOfPeople = Integer.parseInt(numberOfPeopleStr);
-            Date bookDate = dateFormat.parse(bookDateStr);
-            Date time = timeFormat.parse(timeStr);
-
-            PreOrder preOrder = new PreOrder(preOrderID, tableID, name, phone, bookDate, numberOfPeople, time, status);
-            PreOrderDAO dao = new PreOrderDAO();
-            dao.updatePreOrder(preOrder);
-
-            response.sendRedirect("ManagerProcessing");
-        } catch (ParseException | NumberFormatException  e) {
-            errorMessage = "Invalid input: " + e.getMessage();
-            request.setAttribute("errorMessage", errorMessage);
-            request.getRequestDispatcher("ReservationsManager.jsp").forward(request, response);
-        } catch (Exception e) {
-            errorMessage = "Error updating pre-order: " + e.getMessage();
-            request.setAttribute("errorMessage", errorMessage);
-            request.getRequestDispatcher("ReservationsManager.jsp").forward(request, response);
+        if (updated) {
+            response.sendRedirect("ManagerProcessing?success=Status updated successfully");
+        } else {
+            response.sendRedirect("ManagerProcessing?error=Failed to update status");
         }
+    } catch (NumberFormatException e) {
+        // Handle exceptions appropriately
+        e.printStackTrace();
+        response.sendRedirect("ManagerProcessing?error=Error updating status: " + e.getMessage());
+    }
     }
 
     @Override
