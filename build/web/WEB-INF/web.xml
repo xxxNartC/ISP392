@@ -97,8 +97,9 @@
     </servlet>
     <servlet>
         <servlet-name>BlogDetailServlet</servlet-name>
-<servlet-class>ControllerDashbroad.BlogDetailServlet</servlet-class>
-
+        <servlet-class>ControllerDashbroad.BlogDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>UpdateDishController</servlet-name>
         <servlet-class>ControllerDashbroad.UpdateDishController</servlet-class>
     </servlet>
@@ -187,13 +188,14 @@
         <url-pattern>/DeleteBlog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<servlet-name>UpdateBlogServlet</servlet-name>
+        <servlet-name>UpdateBlogServlet</servlet-name>
         <url-pattern>/UpdateBlog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BlogDetailServlet</servlet-name>
         <url-pattern>/BlogDetail</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>UpdateDishController</servlet-name>
         <url-pattern>/UpdateDish</url-pattern>
     </servlet-mapping>
