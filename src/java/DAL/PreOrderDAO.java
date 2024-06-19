@@ -33,11 +33,7 @@ public class PreOrderDAO extends DBConnect {
 
    public List<PreOrder> searchReservationsByPhone(String phone) {
         List<PreOrder> reservations = new ArrayList<>();
-
         String query = "SELECT * FROM `isp392`.`preordertable` WHERE `Phone` = ?";
-
-        String query = "SELECT * FROM `isp392`.`preordertable` WHERE `Name` LIKE ? AND `Phone` = ?";
-
 
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             preparedStatement.setString(1, phone);
@@ -120,9 +116,7 @@ public class PreOrderDAO extends DBConnect {
         return null;
     }
 
-
     // Update the status of a pre-order
-
     public boolean updateStatusPreOrder(String status, int id) {
         String query = "UPDATE preordertable SET Status = ? WHERE PreOrderID = ?";
         boolean rowUpdated = false;
@@ -137,16 +131,10 @@ public class PreOrderDAO extends DBConnect {
         return rowUpdated;
     }
 
-
     // Create a new pre-order and return the generated ID
     public int createPreOrder(PreOrder preOrder) {
         String query = "INSERT INTO preordertable (Name, Phone, Book_date, Time, NumberOfPeople, Status) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = cnn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
-
-    public int createPreOrder(PreOrder preOrder) {
-        String query = "INSERT INTO preordertable (Name, Phone, Book_date, Time, NumberOfPeople, Status) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = cnn.prepareStatement(query)) {
-
             statement.setString(1, preOrder.getName());
             statement.setString(2, preOrder.getPhone());
             statement.setDate(3, new java.sql.Date(preOrder.getBookDate().getTime()));
@@ -166,7 +154,5 @@ public class PreOrderDAO extends DBConnect {
             System.out.println("Error creating new pre-order: " + e.getMessage());
         }
         return -1;
-
-
     }
 }
