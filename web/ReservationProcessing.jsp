@@ -85,14 +85,14 @@
                                             <td>${preOrder.time}</td>
                                             <td>
                                                 <span class="badge badge-info">
-                                                    ${preOrder.status == 0 ? "New" : preOrder.status == 1 ? "Accept" : "Reject"}
+                                                    ${preOrder.status}
                                                 </span>
                                             </td>
                                             <td>
-                                                <a class="btn btn-secondary" href="ReservationsManager?action=view&id=${preOrder.preOrderID}">View</a>
+                                                <a class="btn btn-secondary" href="ReservationManager?action=view&id=${preOrder.preOrderID}">View</a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-secondary" href="ReservationsManager?action=view&id=${preOrder.preOrderID}">Delete</a>
+                                                <a class="btn btn-secondary" href="ReservationManager?action=view&id=${preOrder.preOrderID}">Delete</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
