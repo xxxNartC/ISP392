@@ -32,7 +32,7 @@ public class PreOrderDAO extends DBConnect {
 
     public List<PreOrder> searchReservationsByName(String name) {
         List<PreOrder> reservations = new ArrayList<>();
-        String query = "SELECT * FROM `isp392`.`preordertable` WHERE `Name` LIKE ?";
+        String query = "SELECT * FROM `isp392`.`preordertable` WHERE `Name` LIKE ? AND `Phone` = ?";
 
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
 
@@ -112,5 +112,43 @@ public class PreOrderDAO extends DBConnect {
             ex.printStackTrace();
         }
         return null;
+    }
+    public boolean updateStatusPreOrder(String status, int id) {
+        String query = "UPDATE preordertable SET Status = ? WHERE PreOrderID = ?";
+        boolean rowUpdated = false;
+
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setString(1, status);
+            statement.setInt(2, id);
+            rowUpdated = statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            System.out.println("Error updating pre-order status: " + e.getMessage());
+        }
+        return rowUpdated;
+    }
+
+    public int createPreOrder(PreOrder preOrder) {
+        String query = "INSERT INTO preordertable (Name, Phone, Book_date, Time, NumberOfPeople, Status) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = cnn.prepareStatement(query)) {
+            statement.setString(1, preOrder.getName());
+            statement.setString(2, preOrder.getPhone());
+            statement.setDate(3, new java.sql.Date(preOrder.getBookDate().getTime()));
+            statement.setTime(4, new java.sql.Time(preOrder.getTime().getTime()));
+            statement.setInt(5, preOrder.getNumberOfPeople());
+            statement.setString(6, preOrder.getStatus());
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        return generatedKeys.getInt(1);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error creating new pre-order: " + e.getMessage());
+        }
+        return -1;
+    
     }
 }
