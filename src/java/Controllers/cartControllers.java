@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import Model.Cart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,6 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -36,7 +38,7 @@ public class cartControllers extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cartControllers</title>");            
+            out.println("<title>Servlet cartControllers</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cartControllers at " + request.getContextPath() + "</h1>");
@@ -71,7 +73,34 @@ public class cartControllers extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession(true);
+        Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+        }
+
+        String action = request.getParameter("action");
+        String numStr = request.getParameter("num");
+        String dishIDStr = request.getParameter("dishID");
+
+        try {
+            int dishID = Integer.parseInt(dishIDStr);
+            int num = Integer.parseInt(numStr);
+
+            if ("delete".equals(action)) {
+                cart.removeItem(dishID);
+            } else if ("update".equals(action)) {
+                cart.updateItemQuantity(dishID, num);
+            }
+
+            session.setAttribute("cart", cart);
+            session.setAttribute("size", cart.getItems().size());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error parsing dishID or num: " + e.getMessage());
+        }
+
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     /**

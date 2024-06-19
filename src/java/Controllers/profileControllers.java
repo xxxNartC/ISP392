@@ -53,8 +53,28 @@ public class profileControllers extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        HttpSession ss = request.getSession(true);
+        // Retrieve the user parameter from the request
+        String user_r = request.getParameter("account");
+
+        // Assuming DAO is a class that interacts with the database
+        UserDao dao = new UserDao();
+
+        // Fetch the Customer object based on the user_r parameter
+        Users user1 = (Users) ss.getAttribute("user");
+        try {
+            user1 = dao.getUserById(1);
+        } catch (Exception ex) {
+            Logger.getLogger(profileControllers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Set the retrieved Customer object as a request attribute
+        ss.setAttribute("pro", user1);
+
+        // Forward the request to profile.jsp for displaying the profile
         request.getRequestDispatcher("profile.jsp").forward(request, response);
-    } 
+    }
+    
 
     /** 
      * Handles the HTTP <code>POST</code> method.

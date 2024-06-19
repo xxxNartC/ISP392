@@ -47,7 +47,7 @@ public class AccountDAO extends DBConnect {
                 String pass = rs.getString(3);
                 String type = rs.getString(4);
                 String userInfoId = rs.getString(5);
-                String forgot = rs.getString(6);
+                String forgot = "demo";
                 a = new Account(ID, acc, pass, type, userInfoId,forgot);
                 System.out.println("success");
                 return a;
