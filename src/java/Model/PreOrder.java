@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.util.Date;
 
 public class PreOrder {
+
     private int preOrderID; // This field will auto-increment
     private int tableID;
     private String name;
@@ -11,7 +12,8 @@ public class PreOrder {
     private Date bookDate;
     private int numberOfPeople;
     private Date time;
-    
+    private String status;
+
     // Constructors
     public PreOrder() {
     }
@@ -24,6 +26,17 @@ public class PreOrder {
         this.bookDate = bookDate;
         this.numberOfPeople = numberOfPeople;
         this.time = time;
+    }
+
+    public PreOrder(int preOrderID, int tableID, String name, String phone, Date bookDate, int numberOfPeople, Date time, String status) {
+        this.preOrderID = preOrderID;
+        this.tableID = tableID;
+        this.name = name;
+        this.phone = phone;
+        this.bookDate = bookDate;
+        this.numberOfPeople = numberOfPeople;
+        this.time = time;
+        this.status = status;
     }
 
     public int getPreOrderID() {
@@ -83,7 +96,15 @@ public class PreOrder {
     }
 
     public void setBookTime(Time time) {
-    this.time = new Date(time.getTime());
-}
+        this.time = new Date(time.getTime());
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 }
