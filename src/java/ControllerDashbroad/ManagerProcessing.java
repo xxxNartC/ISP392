@@ -73,7 +73,7 @@ public class ManagerProcessing extends HttpServlet {
                     request.getRequestDispatcher("ReservationProcessing.jsp").forward(request, response);
                 } catch (Exception ex) {
                     Logger.getLogger(ManagerProcessing.class.getName()).log(Level.SEVERE, null, ex);
-                    request.setAttribute("errorMessage", "Error retrieving pre-orders");
+request.setAttribute("errorMessage", "Error retrieving pre-orders");
                     request.getRequestDispatcher("ReservationProcessing.jsp").forward(request, response);
                 }
             }
