@@ -15,12 +15,13 @@ import java.util.List;
 public class SearchReservationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String searchName = request.getParameter("searchName");
-        
+        String searchPhone = request.getParameter("searchPhone");
+
         PreOrderDAO dao = new PreOrderDAO();
-        List<PreOrder> reservations = dao.searchReservationsByName(searchName);
+        List<PreOrder> reservations = dao.searchReservationsByPhone(searchPhone);
 
         request.setAttribute("reservations", reservations);
         request.getRequestDispatcher("searchResults.jsp").forward(request, response);
     }
+
 }
