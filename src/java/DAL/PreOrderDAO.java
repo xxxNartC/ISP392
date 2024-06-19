@@ -155,4 +155,26 @@ public class PreOrderDAO extends DBConnect {
         }
         return -1;
     }
+     public List<PreOrder> getAllPreOrders() {
+        List<PreOrder> preOrders = new ArrayList<>();
+        String query = "SELECT * FROM preordertable";
+        try (PreparedStatement statement = cnn.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                PreOrder preOrder = new PreOrder();
+                preOrder.setPreOrderID(resultSet.getInt("PreOrderID"));
+                preOrder.setTableID(resultSet.getInt("TableID"));
+                preOrder.setName(resultSet.getString("Name"));
+                preOrder.setPhone(resultSet.getString("Phone"));
+                preOrder.setBookDate(resultSet.getDate("Book_date"));
+                preOrder.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
+                preOrder.setTime(resultSet.getTime("Time"));
+                preOrder.setStatus(resultSet.getString("Status"));
+                preOrders.add(preOrder);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return preOrders;
+    }
 }
