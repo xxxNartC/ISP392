@@ -1,6 +1,5 @@
 package ControllerDashbroad;
 
-
 import DAL.PreOrderDAO;
 import Model.Account;
 import Model.PreOrder;
@@ -19,16 +18,17 @@ import java.lang.System.Logger.Level;
 import java.sql.SQLException;
 
 public class ReservationManager extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ReservationManager</title>");  
+            out.println("<title>Servlet ReservationManager</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ReservationManager at " + request.getContextPath() + "</h1>");
@@ -39,7 +39,7 @@ public class ReservationManager extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account user = (Account) session.getAttribute("account");
 
@@ -67,26 +67,26 @@ public class ReservationManager extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         String preOrderIDStr = request.getParameter("preOrderID");
-    String status = request.getParameter("status");
+        String status = request.getParameter("status");
 
-    try {
-        int preOrderID = Integer.parseInt(preOrderIDStr);
-        
-        PreOrderDAO dao = new PreOrderDAO();
-        boolean updated = dao.updateStatusPreOrder(preOrderID, status);
+        try {
+            int preOrderID = Integer.parseInt(preOrderIDStr);
 
-        if (updated) {
-            response.sendRedirect("ManagerProcessing?success=Status updated successfully");
-        } else {
-            response.sendRedirect("ManagerProcessing?error=Failed to update status");
+            PreOrderDAO dao = new PreOrderDAO();
+            boolean updated = dao.updateStatusPreOrder(preOrderID, status);
+
+            if (updated) {
+                response.sendRedirect("ManagerProcessing?success=Status updated successfully");
+            } else {
+                response.sendRedirect("ManagerProcessing?error=Failed to update status");
+            }
+        } catch (NumberFormatException e) {
+            // Handle exceptions appropriately
+            e.printStackTrace();
+            response.sendRedirect("ManagerProcessing?error=Error updating status: " + e.getMessage());
         }
-    } catch (NumberFormatException e) {
-        // Handle exceptions appropriately
-        e.printStackTrace();
-        response.sendRedirect("ManagerProcessing?error=Error updating status: " + e.getMessage());
-    }
     }
 
     @Override
