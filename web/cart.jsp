@@ -4,7 +4,11 @@
     Author     : DELL
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -65,13 +69,16 @@
                 </div>
             </div>
         </section>
-
-
+        <form id="cartForm" action="cart" method="post">
+            <input type="hidden" id="dishID" name="dishID" value="">
+            <input type="hidden" id="action" name="action" value="">
+            <input type="hidden" id="num" name="num" value="">
+        </form>
 
         <div class="untree_co-section before-footer-section">
             <div class="container">
                 <div class="row mb-5">
-                    <form class="col-md-12" method="post">
+                    <form class="col-md-12" action="" method="post">
                         <div class="site-blocks-table">
                             <table class="table">
                                 <thead>
@@ -85,53 +92,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="product-thumbnail">
-                                            <img src="images/product-1.png" alt="Image" class="img-fluid">
-                                        </td>
-                                        <td class="product-name">
-                                            <h2 class="h5 text-black">Product 1</h2>
-                                        </td>
-                                        <td>$49.00</td>
-                                        <td>
-                                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                    <c:set var="cart" value="${sessionScope.cart}"/>
+                                    <c:forEach var="item" items="${cart.items}">
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <img src="images/${item.dish.image}" alt="Image" class="img-fluid" style="width: 100px; height: auto;">
+                                            </td>
+                                            <td class="product-name">
+                                                <h2 class="h5 text-black">${item.dish.name}</h2>
+                                            </td>
+                                            <td>€${item.price}</td>
+                                            <td>
+                                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-black decrease" type="button" onclick="updateCart(${item.dish.dishID}, 'update', -1)">&minus;</button>
+                                                    </div>
+                                                    <input type="text" class="form-control text-center quantity-amount" value="${item.quantity}" placeholder="" aria-label="Quantity" aria-describedby="button-addon1" readonly>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-black increase" type="button" onclick="updateCart(${item.dish.dishID}, 'update', 1)">&plus;</button>
+                                                    </div>
                                                 </div>
-                                                <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                                </div>
-                                            </div>
+                                            </td>
+                                            <td>€${item.quantity * item.price}</td>
+                                            <td><button type="button" class="btn btn-primary btn-sm" onclick="updateCart(${item.dish.dishID}, 'delete', 0)">X</button></td>
+                                            <!--                                            <td><a  class="btn btn-primary btn-sm" >X</a></td>-->
+                                        </tr>
+                                    </c:forEach>
 
-                                        </td>
-                                        <td>$49.00</td>
-                                        <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                                    </tr>
 
-                                    <tr>
-                                        <td class="product-thumbnail">
-                                            <img src="images/product-2.png" alt="Image" class="img-fluid">
-                                        </td>
-                                        <td class="product-name">
-                                            <h2 class="h5 text-black">Product 2</h2>
-                                        </td>
-                                        <td>$49.00</td>
-                                        <td>
-                                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                                                <div class="input-group-prepend">
-                                                    <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                                                </div>
-                                                <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                                                </div>
-                                            </div>
 
-                                        </td>
-                                        <td>$49.00</td>
-                                        <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -142,22 +131,7 @@
                     <div class="col-md-6">
                         <div class="row mb-5">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label class="text-black h4" for="coupon">Coupon</label>
-                                <p>Enter your coupon code if you have one.</p>
-                            </div>
-                            <div class="col-md-8 mb-3 mb-md-0">
-                                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-black">Apply Coupon</button>
+                                <a class="btn btn-primary btn-block" href="http://localhost:9999/ISP392-3/dishs">Continue Menu</a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +148,7 @@
                                         <span class="text-black">Subtotal</span>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <strong class="text-black">$230.00</strong>
+                                        <strong class="text-black">€${cart.getTotalPrice()}</strong>
                                     </div>
                                 </div>
                                 <div class="row mb-5">
@@ -182,15 +156,28 @@
                                         <span class="text-black">Total</span>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <strong class="text-black">$230.00</strong>
+                                        <strong class="text-black">$${cart.getTotalPrice()}</strong>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location = 'checkout.html'">Proceed To Checkout</button>
+                                <c:if test="${sessionScope.account.accountType eq 'user'}">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-primary btn-block" onclick="window.location = 'reservation.jsp'">Proceed To Checkout</button>
+                                            <!--                                                <a class="btn btn-primary btn-block" href="" >Proceed To Checkout</a>-->
+                                        </div>
                                     </div>
-                                </div>
+                                </c:if>
+                                <c:if test="${sessionScope.account.accountType eq null}">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-primary btn-block" onclick="window.location = 'http://localhost:9999/ISP392-3/login'">Proceed To Checkout</button>
+                                        </div>
+                                    </div>
+                                </c:if>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -204,4 +191,12 @@
 
     </body>
 </html>
+<script>
+    function updateCart(dishID, action, num) {
+        document.getElementById("dishID").value = dishID;
+        document.getElementById("action").value = action;
+        document.getElementById("num").value = num;
+        document.getElementById("cartForm").submit();
+    }
+</script>
 
