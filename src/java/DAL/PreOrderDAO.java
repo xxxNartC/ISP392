@@ -145,7 +145,7 @@ try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
                 PreOrder preOrder = new PreOrder();
                 preOrder.setPreOrderID(resultSet.getInt("PreOrderID"));
                 preOrder.setTableID(resultSet.getInt("TableID"));
-preOrder.setName(resultSet.getString("Name"));
+                preOrder.setName(resultSet.getString("Name"));
                 preOrder.setPhone(resultSet.getString("Phone"));
                 preOrder.setBookDate(resultSet.getDate("Book_date"));
                 preOrder.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
