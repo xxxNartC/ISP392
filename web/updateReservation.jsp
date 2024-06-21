@@ -87,6 +87,7 @@
                                 <div class="col-md-12 mt-3">
                                     <div class="form-group">
                                         <input type="submit" value="Update Reservation" class="btn btn-primary py-3 px-5">
+                                        <a href="Home.jsp" class="btn btn-secondary py-3 px-5">Cancel</a>
                                     </div>
                                 </div>
                             </div>
