@@ -31,7 +31,7 @@ public class PreOrderDAO extends DBConnect {
         }
     }
 
-   public List<PreOrder> searchReservationsByPhone(String phone) {
+    public List<PreOrder> searchReservationsByPhone(String phone) {
         List<PreOrder> reservations = new ArrayList<>();
         String query = "SELECT * FROM `isp392`.`preordertable` WHERE `Phone` = ?";
 
@@ -72,8 +72,7 @@ public class PreOrderDAO extends DBConnect {
     // Update an existing pre-order
     public void updatePreOrder(PreOrder preOrder) {
         String query = "UPDATE `preordertable` SET `Name`=?, `Phone`=?, `Book_date`=?, `Time`=?, `NumberOfPeople`=? WHERE `PreOrderID`=?";
-
-        try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
+try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             preparedStatement.setString(1, preOrder.getName());
             preparedStatement.setString(2, preOrder.getPhone());
             preparedStatement.setDate(3, new java.sql.Date(preOrder.getBookDate().getTime()));
@@ -98,17 +97,21 @@ public class PreOrderDAO extends DBConnect {
 
     // Retrieve a pre-order by its ID
     public PreOrder getPreOrderById(int preOrderID) {
-        String query = "SELECT * FROM `preordertable` WHERE `PreOrderID` = ?";
+        String query = "SELECT * FROM preordertable WHERE PreOrderID = ?";
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             preparedStatement.setInt(1, preOrderID);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                String name = rs.getString("Name");
-                String phone = rs.getString("Phone");
-                Date bookDate = rs.getDate("Book_date");
-                Date time = rs.getTime("Time");
-                int numberOfPeople = rs.getInt("NumberOfPeople");
-                return new PreOrder(preOrderID, 0, name, phone, bookDate, numberOfPeople, time); // tableID = 0, adjust as needed
+                return new PreOrder(
+                    rs.getInt("PreOrderID"),
+                    rs.getInt("TableID"),
+                    rs.getString("Name"),
+                    rs.getString("Phone"),
+                    rs.getDate("Book_date"),
+                    rs.getInt("NumberOfPeople"),
+                    rs.getTime("Time"),
+                    rs.getString("Status")
+                );
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -116,20 +119,47 @@ public class PreOrderDAO extends DBConnect {
         return null;
     }
 
+
     // Update the status of a pre-order
-    public boolean updateStatusPreOrder(String status, int id) {
+    public boolean updateStatusPreOrder(int preOrderID, String status) {
+
         String query = "UPDATE preordertable SET Status = ? WHERE PreOrderID = ?";
         boolean rowUpdated = false;
 
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setString(1, status);
-            statement.setInt(2, id);
+            statement.setInt(2, preOrderID);
             rowUpdated = statement.executeUpdate() > 0;
-        } catch (Exception e) {
-            System.out.println("Error updating pre-order status: " + e.getMessage());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return rowUpdated;
     }
+
+    public List<PreOrder> getAllPreOrders() {
+        List<PreOrder> preOrders = new ArrayList<>();
+        String query = "SELECT * FROM preordertable";
+        try (PreparedStatement statement = cnn.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                PreOrder preOrder = new PreOrder();
+                preOrder.setPreOrderID(resultSet.getInt("PreOrderID"));
+                preOrder.setTableID(resultSet.getInt("TableID"));
+                preOrder.setName(resultSet.getString("Name"));
+                preOrder.setPhone(resultSet.getString("Phone"));
+                preOrder.setBookDate(resultSet.getDate("Book_date"));
+                preOrder.setNumberOfPeople(resultSet.getInt("NumberOfPeople"));
+                preOrder.setTime(resultSet.getTime("Time"));
+                preOrder.setStatus(resultSet.getString("Status"));
+                preOrders.add(preOrder);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return preOrders;
+    }
+
+     
 
     // Create a new pre-order and return the generated ID
     public int createPreOrder(PreOrder preOrder) {
@@ -155,4 +185,8 @@ public class PreOrderDAO extends DBConnect {
         }
         return -1;
     }
+
+    
+    
+
 }

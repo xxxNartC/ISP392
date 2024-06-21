@@ -4,8 +4,6 @@
     Author     : chutu
 --%>
 
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -36,12 +34,10 @@
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-
         <link rel="stylesheet" href="css/flaticon.css">
         <link rel="stylesheet" href="css/icomoon.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-
 
     <body>
         <%@include file="header.jsp" %>
@@ -63,8 +59,6 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-
-
                         <div class="card-body">
                             <%-- Display error message if exists --%>
                             <% if (request.getAttribute("error") != null) { %>
@@ -93,36 +87,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control" id="username" name="username" value="${sessionScope.account.userName}" readonly>
+                                    <label for="username">User Name</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="username" name="name" value="${pro.name}" >
+                                       
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="User name">User name</label>
-                                    <input type="text" class="form-control" id="Username" name="User name">
+                                <div class="form-group">    
+                                    <label for="Email">Email</label>
+                                    <input type="text" class="form-control" id="Email" name="Email" value="${pro.email}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Phone">Phone</label>
-                                    <input type="text" class="form-control" id="Phone" name="Phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Email">Email</label>
-                                    <input type="text" class="form-control" id="Email" name="Email">
+                                    <input type="text" class="form-control" id="Phone" name="Phone" value="${pro.phone}">
                                 </div>
                                 <div class="form-group">
                                     <label for="Address">Address</label>
-                                    <input type="text" class="form-control" id="Address" name="Address">
+                                    <input type="text" class="form-control" id="Address" name="Address" value="${pro.address}">
                                 </div>
-
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <%@include file="close.jsp" %>
-
-
-
     </body>
 </html>

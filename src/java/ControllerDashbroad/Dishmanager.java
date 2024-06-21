@@ -87,14 +87,13 @@ public class Dishmanager extends HttpServlet {
                 
 
                 try {
-                    if(search == null){
+                    if(search == null || search.isBlank()){
                     list = dao.getAllDishs();
                     }else{
                    
                     list = dao.getAllDishsBySearch(search);
                     }
                     
-//                    System.out.println(list.get(0));
                     if (list.isEmpty()) {
                         request.setAttribute("message", "No matching results found.");
                     }else{
@@ -117,21 +116,7 @@ public class Dishmanager extends HttpServlet {
                 } catch (Exception e) {
                     Logger.getLogger(Dishmanager.class.getName()).log(Level.SEVERE, null, e);
                 }
-                    // lay totalPage
-//                    int totalPage = 0;
-//                    if (list.size() % 5 != 0) {
-//                        totalPage = list.size() / 5 + 1;
-//                    } else {
-//                        totalPage = list.size() / 5;
-//                    }
-//                    //
-//                    for(int i = page*5 - 5; i < page*5 && i < list.size(); i++){
-//                        listByPage.add(list.get(i));
-//                    }
-//                    
-//                    request.setAttribute("list", listByPage);
-//                    request.setAttribute("totalPage", totalPage);
-//                    System.out.println(list.get(0));
+                    
 
                     request.getRequestDispatcher("Dishmanager.jsp").forward(request, response);
                 }
