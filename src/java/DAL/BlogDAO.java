@@ -23,7 +23,7 @@ public class BlogDAO extends DBConnect {
 
     public List<Blog> getAllBlog() throws SQLException {
         List<Blog> chefs = new ArrayList<>();
-        String query = "SELECT blogid, title, description, image, date FROM isp392.Blog;";
+        String query = "SELECT blogid, title, description, image, date FROM isp392.bblog;";
 
         try (PreparedStatement statement = cnn.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
 
@@ -45,7 +45,7 @@ public class BlogDAO extends DBConnect {
     }
 
     public void deleteBlog(int id) throws SQLException {
-        String query = "DELETE from isp392.Blog where blogid = ?;";
+        String query = "DELETE from isp392.blog where blogid = ?;";
 
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setInt(1, id);
@@ -57,7 +57,7 @@ public class BlogDAO extends DBConnect {
     }
 
     public Blog getBlogByID(int id) throws SQLException {
-        String query = "SELECT blogid, title, description, image, date FROM isp392.Blog WHERE blogid = ?;";
+        String query = "SELECT blogid, title, description, image, date FROM isp392.bblog WHERE blogid = ?;";
 
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setInt(1, id);
@@ -79,7 +79,7 @@ public class BlogDAO extends DBConnect {
     }
     
     public void update(Blog blog) throws SQLException {
-        String query = "UPDATE isp392.Blog SET title = ?, description = ?, image = ? WHERE blogid = ?";
+        String query = "UPDATE isp392.blog SET title = ?, description = ?, image = ? WHERE blogid = ?";
 
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setString(1, blog.getTitle());
@@ -95,7 +95,7 @@ public class BlogDAO extends DBConnect {
     
     
     public void addBlog(Blog blog) throws SQLException {
-        String query = "INSERT INTO isp392.Blog(title, description, image, date) VALUES (?,?,?,?)";
+        String query = "INSERT INTO isp392.bblog(title, description, image, date) VALUES (?,?,?,?)";
         try (PreparedStatement statement = cnn.prepareStatement(query)) {
             statement.setString(1, blog.getTitle());
             statement.setString(2, blog.getDescription());

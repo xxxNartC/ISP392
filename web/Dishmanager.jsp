@@ -83,7 +83,11 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                    
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-warning">
+                            <c:out value="${message}" />
+                        </div>
+                    </c:if>
 
                 </div>
                 <div>
