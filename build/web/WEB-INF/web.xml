@@ -112,7 +112,8 @@
         <servlet-name>SearchResController</servlet-name>
         <servlet-class>Controllers.SearchResController</servlet-class>
     </servlet>
-        <servlet>
+
+    <servlet>
         <servlet-name>ManagerProcessing</servlet-name>
         <servlet-class>ControllerDashbroad.ManagerProcessing</servlet-class>
     </servlet>
@@ -236,7 +237,7 @@
         <servlet-name>ManagerProcessing</servlet-name>
         <url-pattern>/ManagerProcessing</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+        <servlet-mapping>
         <servlet-name>ReservationManager</servlet-name>
         <url-pattern>/ReservationManager</url-pattern>
     </servlet-mapping>
