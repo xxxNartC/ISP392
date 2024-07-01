@@ -84,8 +84,8 @@
                         </tbody>
                     </table>
                     <c:if test="${not empty message}">
-                        <div class="alert alert-warning" role="alert">
-                            ${message}
+                        <div class="alert alert-warning">
+                            <c:out value="${message}" />
                         </div>
                     </c:if>
 

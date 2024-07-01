@@ -20,10 +20,10 @@
                     Home
                 </a>
             </li>
-            <li >
-                <a href="DashBoard" class="nav-link d-flex align-items-center" >
+             <li >
+                <a href="http://localhost:9999/ISP392-3/ManagerProcessing" class="nav-link d-flex align-items-center" >
                     <i class="fa-solid fa-chart-simple" style="margin-right: 10px"></i>
-                    Dashboard
+                    Reservation
                 </a>
             </li>
 
@@ -37,6 +37,12 @@
                 <a href="http://localhost:9999/ISP392-3/ListUser" class="nav-link sidebarBtn" >
                     <i class="fa-solid fa-user pe-3" style="margin-right: 10px"></i>
                     Customers
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:9999/ISP392-3/blogmana" class="nav-link sidebarBtn" >
+                    <i class="fa-solid fa-user pe-3" style="margin-right: 10px"></i>
+                    Blog    
                 </a>
             </li>
             <li>

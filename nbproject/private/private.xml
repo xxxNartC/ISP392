@@ -3,7 +3,50 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/maingocdat/Desktop/ISP392/src/java/ControllerDashbroad/AddDishController.java</file>
+
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Model/PreOrder.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/web/header.jsp</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/DAL/PreOrderDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Controllers/SearchReservationServlet.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/web/searchRes.jsp</file>
+
+
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Controllers/SearchReservationServlet.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/DAL/PreOrderDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Model/PreOrder.java</file>
+
+
+            <file>file:/D:/ISP392/web/SideBarAdmin.jsp</file>
+            <file>file:/D:/ISP392/web/Blog.jsp</file>
+            <file>file:/D:/ISP392/web/Dishmanager.jsp</file>
+            <file>file:/D:/ISP392/web/blog-single.jsp</file>
+            <file>file:/D:/ISP392/web/WEB-INF/web.xml</file>
+            <file>file:/D:/ISP392/web/blog-single.html</file>
+            <file>file:/D:/ISP392/web/UpdateDish.jsp</file>
+            <file>file:/D:/ISP392/web/DashBoard.jsp</file>
+            <file>file:/D:/ISP392/src/java/Model/Blog.java</file>
+            <file>file:/D:/ISP392/web/Contact.jsp</file>
+            <file>file:/D:/ISP392/web/AddBlog.jsp</file>
+            <file>file:/D:/ISP392/web/chef_details.jsp</file>
+            <file>file:/D:/ISP392/src/java/ControllerDashbroad/Blogmanager.java</file>
+            <file>file:/D:/ISP392/src/java/DAL/DBConnect.java</file>
+            <file>file:/D:/ISP392/web/Home.jsp</file>
+            <file>file:/D:/ISP392/web/Blogmanager.jsp</file>
+            <file>file:/D:/ISP392/web/BlogDetail.jsp</file>
+
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Model/PreOrder.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/DAL/AccountDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/DAL/DBConnect.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/web/header.jsp</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Controllers/UpdateResController.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/ControllerDashbroad/UpdateBlogServlet.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/DAL/PreOrderDAO.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Controllers/SearchReservationServlet.java</file>
+            <file>file:/C:/Users/Minh%20Quan/Desktop/ISP/ISP392/src/java/Controllers/ResControllers.java</file>
+
+
+
         </group>
     </open-files>
 </project-private>

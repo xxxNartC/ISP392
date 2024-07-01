@@ -62,6 +62,30 @@ public class UserDao extends DBConnect {
         return false;
     }
 
+   public Users getUserById(int userId) {
+        Users user = null;
+        String query = "SELECT * FROM user WHERE UserID = ?";
+        try (
+             PreparedStatement ps = cnn.prepareStatement(query)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    user = new Users();
+                    user.setUserId(rs.getInt("UserID"));
+                    user.setName(rs.getString("Name"));
+                    user.setPhone(rs.getString("Phone"));
+                    user.setAddress(rs.getString("Address"));
+                    user.setEmail(rs.getString("Email"));
+                    user.setDob(rs.getString("Birthdate"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+
     public static void main(String[] args) throws SQLException {
         UserDao d = new UserDao();
         int userIdToDelete = 12; // Thay số này bằng ID của món ăn bạn muốn kiểm tra

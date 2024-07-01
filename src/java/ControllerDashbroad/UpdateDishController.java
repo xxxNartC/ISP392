@@ -77,7 +77,7 @@ public class UpdateDishController extends HttpServlet {
 
                 try {
                     int id = Integer.parseInt(id_raw);
-                    dish dish = dao.getDishById(id);
+                    dish dish = dao.getDishesByID1(id);
                     request.setAttribute("dish", dish);
                     request.getRequestDispatcher("UpdateDish.jsp").forward(request, response);
                 } catch (Exception e) {
@@ -110,7 +110,7 @@ public class UpdateDishController extends HttpServlet {
         DishDao dao = new DishDao();
 
         try {
-            dao.updateDish(new dish(id, name, price, des, dishtype, image));
+            dao.updateDish(new dish(id, name, price, des, dishtype, image,1));
             response.sendRedirect("dishmana");
         } catch (SQLException ex) {
             Logger.getLogger(UpdateDishController.class.getName()).log(Level.SEVERE, null, ex);
